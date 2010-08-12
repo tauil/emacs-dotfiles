@@ -4,31 +4,68 @@
 
 ;; Rafael B. Tauil - rafael.tauil.com.br
 
+;; Initial configs
+(setq color-theme-is-global t)
+
+(set-terminal-coding-system 'utf-8)
+(set-keyboard-coding-system 'utf-8)
+(prefer-coding-system 'utf-8)
+
 ;; Show line numbers ----------------------------------------------------------
-(load-file "~/_ProjetosGit/emacs-designer-kit/linum.el")
+(load-file "~/Projetos/emacs-designer-kit/linum.el")
 (require 'linum)
 (global-linum-mode 1)
+
+;; Textmate mode -------------
+(add-to-list 'load-path "~/Projetos/emacs-designer-kit/textmate.el")
+(require 'textmate)
+(textmate-mode)
 
 ;; Code auto-complete ---------------------------------------------------------
 (autoload 'html-helper-mode "html-helper-mode" "Yay HTML" t)
 ;(setq auto-mode-alist (cons '("\\.html$" . html-helper-mode) auto-mode-alist))
-(load-file "~/_ProjetosGit/yasnippet/yasnippet.el")
+(load-file "~/Projetos/yasnippet/yasnippet.el")
 (require 'yasnippet)
 (yas/initialize)
-(yas/load-directory "~/_ProjetosGit/yasnippet/snippets")
+(yas/load-directory "~/Projetos/yasnippet/snippets")
+`
+;; Add modes ---------------------------------------------------------------
+(setq auto-mode-alist       
+     (cons '("\\.haml\\'" . text-mode) auto-mode-alist))
 
-;; Tab setup ------------------------------------------------------------------
+(load-file "~/Projetos/emacs-designer-kit/css-mode.el")
+(autoload 'css-mode "css-mode")
+(setq auto-mode-alist       
+     (cons '("\\.css\\'" . css-mode) auto-mode-alist))
+(setq cssm-indent-function #'cssm-c-style-indenter)
+
+;; Aquamacs setup ------------------------------------------------------------------
 (custom-set-variables
- '(tab-width 2)
+ '(global-hl-line-mode t)
  '(indent-tabs-mode nil)
- '(setq standard-indent 2))
+ '(setq standard-indent)
+ '(tab-width 2)
+ '(tabbar-mode nil nil (tabbar))
+ '(transient-mark-mode t))
 
 ;; Interactively Do Things ----------------------------------------------------
 (require 'ido)
 (ido-mode t)
  
+;; Load Color Theme -----------------------------------------------------------
+(add-to-list 'load-path "~/Projetos/emacs-designer-kit/color-theme/")
+(require 'color-theme)
+(eval-after-load "color-theme"
+  '(progn
+     (color-theme-initialize)
+     (color-theme-hober)))
+
 ;; Load Schwarz Color Theme ---------------------------------------------------
-(load-file "~/_ProjetosGit/emacs-designer-kit/schwarz.el")
+(color-theme-schwarz)
+(load-file "~/Projetos/emacs-designer-kit/color-theme/themes/color-theme-schwarz.el")
+
+(modify-frame-parameters (selected-frame) '((alpha . 85)))
+(set-face-background 'hl-line "#333")
 
 ;;  Misc ----------------------------------------------------------------------
 (when window-system
@@ -38,7 +75,7 @@
   (blink-cursor-mode -1))
 
 ;; Do not show splash screen
-(inhibit-splash-screen nil)
+(setq inhibit-splash-screen t)
 
 ;; Highlight matching parentheses when the point is on them.
 (show-paren-mode 1)
@@ -59,3 +96,9 @@
 (add-to-list 'auto-mode-alist '("\\.js\\(on\\)?$" . js2-mode))
 (add-to-list 'auto-mode-alist '("\\.xml$" . nxml-mode))
 (add-to-list 'auto-mode-alist '("\\.html$" . html-mode))
+(custom-set-faces
+  ;; custom-set-faces was added by Custom.
+  ;; If you edit it by hand, you could mess it up, so be careful.
+  ;; Your init file should contain only one such instance.
+  ;; If there is more than one, they won't work right.
+ )

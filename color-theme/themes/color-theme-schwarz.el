@@ -65,5 +65,4 @@
      (underline ((nil (:underline nil))))
      (zmacs-region ((t (:background "snow" :foreground "ble")))))))
 
-
 (color-theme-schwarz)
