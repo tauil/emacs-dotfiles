@@ -6,29 +6,47 @@
 
 ;; Initial configs
 (setq color-theme-is-global t)
+(prefer-coding-system 'utf-8) ;; utf-8 setups
+(set-default-coding-systems 'utf-8)
 (set-terminal-coding-system 'utf-8)
 (set-keyboard-coding-system 'utf-8)
-(prefer-coding-system 'utf-8)
+(set-selection-coding-system 'utf-8)
+(setq mac-command-modifier 'meta) ;; Change meta to apple command key
+(setq mac-option-modifier 'none)
+(setq-default indent-tabs-mode nil)
+(setq c-indent-level 2)
+(setq cssm-indent-level 2)
+(setq cssm-newline-before-closing-bracket t)
+(setq cssm-indent-function #'cssm-c-style-indenter)
+(setq cssm-mirror-mode nil)
+(setq backup-inhibited t) ;; Disable backup
+(setq auto-save-default nil) ;; Disable auto save
+(show-paren-mode 1) ;; Highlight matching parentheses when the point is on them.
+(menu-bar-mode 1) ;; You really don't need this; trust me.
+(recentf-mode 1) ;; Save a list of recent files visited.
+(setq inhibit-splash-screen t) ;; Do not show splash screen
+(setq display-time-day-and-date t) (display-time) ;; Make the display of date and time persistent.
+(require 'linum) ;; Show line numbers
+(global-linum-mode 1)
 
-;; Highlight matching parentheses when the point is on them.
-(show-paren-mode 1)
-
-;; You really don't need this; trust me.
-(menu-bar-mode 1)
-
-;; Save a list of recent files visited.
-(recentf-mode 1)
+(defun fullscreen ()
+  (interactive)
+  (ns-toggle-fullscreen))
+(global-set-key "\M-m" 'fullscreen)
 
 ;; Add libs to path -----------------------------------------------------------
 (add-to-list 'load-path "~/Projetos/emacs-designer-kit/lib")
 
-;; Show line numbers ----------------------------------------------------------
-(require 'linum)
-(global-linum-mode 1)
+;; Add haml-mode
+(require 'haml-mode)
+
+;; Add rvm  -------------------------------------------------------------------
+(require 'rvm)
+(rvm-use-default) ;; use rvm’s default ruby for the current Emacs session
 
 ;; Textmate mode --------------------------------------------------------------
-(require 'textmate)
-(textmate-mode)
+;;(require 'textmate)
+;;(textmate-mode)
 
 ;; Interactively Do Things ----------------------------------------------------
 (require 'ido)
@@ -40,19 +58,8 @@
 (require 'yasnippet)
 (yas/initialize)
 (yas/load-directory "~/Projetos/yasnippet/snippets")
-`
-;; Aquamacs setup -------------------------------------------------------------
-(custom-set-variables
- '(aquamacs-additional-fontsets nil t)
- '(aquamacs-customization-version-id 190 t)
- '(default-frame-alist (quote ((tool-bar-lines . 0) (menu-bar-lines . 1) (cursor-type . box) (vertical-scroll-bars . right) (internal-border-width . 0) (left-fringe . 1) (right-fringe) (fringe) (background-color . "black") (background-mode . dark) (border-color . "black") (cursor-color . "#FF9900") (foreground-color . "#CCCCCC") (mouse-color . "sienna1"))))
- '(indent-tabs-mode nil)
- '(setq standard-indent)
- '(tab-width 2)
- '(tabbar-mode nil nil (tabbar))
- '(transient-mark-mode t))
- 
-;; Load Color Theme -----------------------------------------------------------
+
+ ;; Load Color Theme -----------------------------------------------------------
 (add-to-list 'load-path "~/Projetos/emacs-designer-kit/color-theme/")
 (require 'color-theme)
 (eval-after-load "color-theme"
@@ -64,9 +71,8 @@
 (color-theme-schwarz)
 (load-file "~/Projetos/emacs-designer-kit/color-theme/themes/color-theme-schwarz.el")
 
-;; Backgroud transparency and current line color ------------------------------
-(modify-frame-parameters (selected-frame) '((alpha . 85)))
-(global-hl-line-mode 1)
+(modify-frame-parameters (selected-frame) '((alpha . 85))) ;; Backgroud transparency
+(global-hl-line-mode 1) ;; Current line color
 (set-face-background 'hl-line "#333")
 
 ;;  Misc ----------------------------------------------------------------------
@@ -76,16 +82,14 @@
   (tool-bar-mode -1)
   (blink-cursor-mode -1))
 
-;; Do not show splash screen
-(setq inhibit-splash-screen t)
-
 ;; Associate modes with file extensions
 (add-to-list 'auto-mode-alist '("COMMIT_EDITMSG$" . diff-mode))
 (add-to-list 'auto-mode-alist '("\\.css$" . css-mode))
 (add-to-list 'auto-mode-alist '("\\.ya?ml$" . yaml-mode))
 (add-to-list 'auto-mode-alist '("\\.rb$" . ruby-mode))
 (add-to-list 'auto-mode-alist '("Rakefile$" . ruby-mode))
-(add-to-list 'auto-mode-alist '("\\.js\\(on\\)?$" . js2-mode))
+(add-to-list 'auto-mode-alist '("\\.js\\(on\\)?$" . javascript-mode))
 (add-to-list 'auto-mode-alist '("\\.xml$" . nxml-mode))
 (add-to-list 'auto-mode-alist '("\\.html$" . html-mode))
 (add-to-list 'auto-mode-alist '("\\.haml$" . haml-mode))
+(add-to-list 'auto-mode-alist '("profile" . shell-script-mode))
