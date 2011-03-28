@@ -27,9 +27,13 @@
 (setq inhibit-splash-screen t) ;; Do not show splash screen
 (setq display-time-day-and-date t) (display-time) ;; Make the display of date and time persistent.
 (scroll-bar-mode nil)
+(setq mode-line-buffer-identification (propertized-buffer-identification "%20f"))  ;;Add full path to file name
 
 ;; Add libs to path -----------------------------------------------------------
 (add-to-list 'load-path "~/Projetos/emacs-designer-kit/lib")
+
+(require 'workgroups)
+(setq wg-prefix-key (kbd "C-c w"))
 
 (require 'bm) 
 (require 'bookmark-add) 
