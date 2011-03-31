@@ -27,7 +27,7 @@
 (setq inhibit-splash-screen t) ;; Do not show splash screen
 (setq display-time-day-and-date t) (display-time) ;; Make the display of date and time persistent.
 (scroll-bar-mode nil)
-(setq mode-line-buffer-identification (propertized-buffer-identification "%20f"))  ;;Add full path to file name
+(setq-default mode-line-buffer-identification (propertized-buffer-identification "%20f"))  ;;Add full path to file name
 
 ;; Add libs to path -----------------------------------------------------------
 (add-to-list 'load-path "~/Projetos/emacs-designer-kit/lib")
@@ -84,7 +84,7 @@
 
 ;; Load Schwarz Color Theme ---------------------------------------------------
 (color-theme-schwarz)
-(load-file "~/Projetos/emacs-designer-kit/color-theme/themes/color-theme-schwarz.el")
+;;(load-file "~/Projetos/emacs-designer-kit/color-theme/themes/color-theme-schwarz.el")
 
 (modify-frame-parameters (selected-frame) '((alpha . 85))) ;; Backgroud transparency
 (global-hl-line-mode 1) ;; Current line color
