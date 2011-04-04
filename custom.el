@@ -35,6 +35,8 @@
 (require 'workgroups)
 (setq wg-prefix-key (kbd "C-c w"))
 
+(require 'rainbow-mode)
+
 (require 'bm) 
 (require 'bookmark-add) 
 
