@@ -1,6 +1,6 @@
 ;; This is a simple emacs config file with some lisp scripts that I like to use.
 
-;; I've called emacs-designer-kit cause it's based on emacs-starter-kit but simple. For web designers/front-end developers.
+;; I've called emacs-designer-kit cause it's based on emacs-starter-kit but simple.
 
 ;; Rafael B. Tauil - rafael.tauil.com.br
 
@@ -27,7 +27,7 @@
 (setq inhibit-splash-screen t) ;; Do not show splash screen
 (setq display-time-day-and-date t) (display-time) ;; Make the display of date and time persistent.
 (scroll-bar-mode nil)
-(setq-default mode-line-buffer-identification (propertized-buffer-identification "%20f"))  ;;Add full path to file name
+(setq-default mode-line-buffer-identification (propertized-buffer-identification "%20f"))  ;; Add full path to file name
 
 ;; Add libs to path -----------------------------------------------------------
 (add-to-list 'load-path "~/Projetos/emacs-designer-kit/lib")
@@ -35,7 +35,7 @@
 (require 'workgroups)
 (setq wg-prefix-key (kbd "C-c w"))
 
-(require 'rainbow-mode)
+(require 'rainbow-mode) ;; For coloring hex codes
 
 (require 'bm) 
 (require 'bookmark-add) 
@@ -44,26 +44,15 @@
 (global-linum-mode 1)
 
 ;; Automaticaly pair braces
-(add-to-list 'load-path "/path/to/autopair") ;; comment if autopair.el is in standard load path 
 (require 'autopair)
 (autopair-global-mode) ;; enable autopair in all buffers 
-
-;;(require 'ack-emacs)
-
-;; Adding Rinari for Rails development
-(add-to-list 'load-path "~/Projetos/emacs-designer-kit/lib/rinari")
-(require 'rinari)
 
 ;; Add haml-mode
 (require 'haml-mode)
 
-;; Add rvm  -------------------------------------------------------------------
-;;(require 'rvm)
-;;(rvm-use-default) ;; use rvm’s default ruby for the current Emacs session
-
 ;; Textmate mode --------------------------------------------------------------
-;;(require 'textmate)
-;;(textmate-mode)
+(require 'textmate)
+(textmate-mode)
 
 ;; Interactively Do Things ----------------------------------------------------
 (require 'ido)
@@ -84,15 +73,14 @@
      (color-theme-initialize)
      (color-theme-hober)))
 
-;; Load Schwarz Color Theme ---------------------------------------------------
-(color-theme-schwarz)
-;;(load-file "~/Projetos/emacs-designer-kit/color-theme/themes/color-theme-schwarz.el")
+;; Load my favorite theme ------------------------------------------------------
+(color-theme-nero)
 
 (modify-frame-parameters (selected-frame) '((alpha . 85))) ;; Backgroud transparency
 (global-hl-line-mode 1) ;; Current line color
 (set-face-background 'hl-line "#333")
 
-;;  Misc ----------------------------------------------------------------------
+;;  Misc -----------------------------------------------------------------------
 (when window-system
   ;; (setq frame-title-forma0t '(buffer-file-name "%f" ("%b")))
   (setq frame-title-format '(buffer-file-name "%f" ("%b")))
@@ -113,26 +101,13 @@
 (global-set-key (kbd "<C-f2>") 'bm-next)
 (global-set-key (kbd "<M-f2>") 'bm-previous)
 
-
-;; Rinari, Sane
-(define-prefix-command 'rinari-sane-map)
-(global-set-key (kbd "\C-c") 'rinari-sane-map)
-
-(define-key rinari-sane-map (kbd "f c") 'rinari-find-controller)
-(define-key rinari-sane-map (kbd "f f") 'rinari-find-file-in-project)
-(define-key rinari-sane-map (kbd "f h") 'rinari-find-helper)
-(define-key rinari-sane-map (kbd "f i") 'rinari-find-migration)
-(define-key rinari-sane-map (kbd "f j") 'rinari-find-javascript)
-(define-key rinari-sane-map (kbd "f l") 'rinari-find-lib)
-(define-key rinari-sane-map (kbd "f m") 'rinari-find-model)
-(define-key rinari-sane-map (kbd "f p") 'rinari-find-public)
-(define-key rinari-sane-map (kbd "f s") 'rinari-find-rspec)
-(define-key rinari-sane-map (kbd "f t") 'rinari-find-test)
-(define-key rinari-sane-map (kbd "f v") 'rinari-find-view)
-(define-key rinari-sane-map (kbd "f xt") 'rinari-find-by-context)
-(define-key rinari-sane-map (kbd "c") 'rinari-console)
-(define-key rinari-sane-map (kbd "g") 'rinari-rgrep)
-(define-key rinari-sane-map (kbd "t") 'rinari-test)
+;; Textmate minor-mode keybinds
+(global-set-key [(meta shift t)] 'textmate-goto-file)
+(global-set-key [(meta shift d)] 'textmate-goto-symbol)
+(global-set-key [(meta up)] 'textmate-column-up)
+(global-set-key [(meta down)] 'textmate-column-down)
+(global-set-key [(meta shift up)] 'textmate-column-up-with-select)
+(global-set-key [(meta shift down)] 'textmate-column-down-with-select)
 
 ;; Associate modes with file extensions
 (add-to-list 'auto-mode-alist '("COMMIT_EDITMSG$" . diff-mode))
