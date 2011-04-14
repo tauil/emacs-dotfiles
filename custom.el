@@ -78,7 +78,6 @@
 
 (modify-frame-parameters (selected-frame) '((alpha . 85))) ;; Backgroud transparency
 (global-hl-line-mode 1) ;; Current line color
-(set-face-background 'hl-line "#333")
 
 ;;  Misc -----------------------------------------------------------------------
 (when window-system
@@ -95,6 +94,9 @@
   (interactive)
   (ns-toggle-fullscreen))
 (global-set-key "\M-m" 'fullscreen)
+
+(global-unset-key "\C-z") ;C-z original desativado
+(global-set-key "\C-z\C-x" 'term) ;C-zC-x: abre um shell no term-mode (superior ao shell-mode: identico a terminal comum)
 
 ;; Bookmark lines
 (global-set-key (kbd "<f2>") 'bm-toggle)
