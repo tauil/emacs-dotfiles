@@ -29,13 +29,20 @@
 (scroll-bar-mode nil)
 (setq-default mode-line-buffer-identification (propertized-buffer-identification "%20f"))  ;; Add full path to file name
 
+; show env var named path
+(getenv "~/.profile")
+
 ;; Add libs to path -----------------------------------------------------------
 (add-to-list 'load-path "~/Projetos/emacs-designer-kit/lib")
 
 (require 'workgroups)
-(setq wg-prefix-key (kbd "C-c w"))
+(setq wg-morph-on nil)
+(setq wg-prefix-key (kbd "<M-f1>")) 
+(workgroups-mode 1)
+(wg-load "~/Projetos/emacs-designer-kit/wg-buffers-setup")
 
 (require 'rainbow-mode) ;; For coloring hex codes
+(require 'multi-term)
 
 (require 'bm) 
 (require 'bookmark-add) 
@@ -65,7 +72,7 @@
 (yas/initialize)
 (yas/load-directory "~/Projetos/yasnippet/snippets")
 
- ;; Load Color Theme -----------------------------------------------------------
+;; Load Color Theme -----------------------------------------------------------
 (add-to-list 'load-path "~/Projetos/emacs-designer-kit/color-theme/")
 (require 'color-theme)
 (eval-after-load "color-theme"
@@ -93,6 +100,7 @@
 (defun fullscreen ()
   (interactive)
   (ns-toggle-fullscreen))
+(fullscreen)
 (global-set-key "\M-m" 'fullscreen)
 
 (global-unset-key "\C-z") ;C-z original desativado
