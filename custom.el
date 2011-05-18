@@ -29,6 +29,10 @@
 (scroll-bar-mode nil)
 (setq-default mode-line-buffer-identification (propertized-buffer-identification "%20f"))  ;; Add full path to file name
 
+(add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
+(if (eq system-type 'darwin)
+    (setenv "PATH" "/usr/local/bin:/opt/local/bin:/opt/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin"))
+
 ; show env var named path
 (getenv "~/.profile")
 
@@ -104,12 +108,17 @@
 (global-set-key "\M-m" 'fullscreen)
 
 (global-unset-key "\C-z") ;C-z original desativado
-(global-set-key "\C-z\C-x" 'term) ;C-zC-x: abre um shell no term-mode (superior ao shell-mode: identico a terminal comum)
+(global-set-key "\C-x\C-z" 'eshell)
 
 ;; Bookmark lines
 (global-set-key (kbd "<f2>") 'bm-toggle)
 (global-set-key (kbd "<C-f2>") 'bm-next)
 (global-set-key (kbd "<M-f2>") 'bm-previous)
+
+(global-set-key [(shift up)] 'windmove-up)
+(global-set-key [(shift left)] 'windmove-left)
+(global-set-key [(shift right)] 'windmove-right)
+(global-set-key [(shift down)] 'windmove-down)
 
 ;; Textmate minor-mode keybinds
 (global-set-key [(meta shift t)] 'textmate-goto-file)
