@@ -28,10 +28,15 @@
 (setq display-time-day-and-date t) (display-time) ;; Make the display of date and time persistent.
 (scroll-bar-mode nil)
 (setq-default mode-line-buffer-identification (propertized-buffer-identification "%20f"))  ;; Add full path to file name
+(setq ruby-insert-encoding-magic-comment nil) ;; Avoid emacs to insert utf8 comment in ruby-mode
 
+;; Eshell setup
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 (if (eq system-type 'darwin)
     (setenv "PATH" "/usr/local/bin:/opt/local/bin:/opt/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin"))
+(defalias 'ff 'find-file)
+(defalias 'fo 'find-file-other-window)
+(defalias 'pj "cd ~/Projetos")
 
 ; show env var named path
 (getenv "~/.profile")
@@ -64,6 +69,11 @@
 ;; Textmate mode --------------------------------------------------------------
 (require 'textmate)
 (textmate-mode)
+
+(defun imenu-css-mode()
+ (set (make-local-variable 'imenu-generic-expression)
+      '((nil "^[ \t\n]*\\([\][[:word:]:=#,*~>.\(\) \t\r\n_-]+\\)[ \t\n]*{" 1))))
+(add-hook 'css-mode-hook 'imenu-css-mode)
 
 ;; Interactively Do Things ----------------------------------------------------
 (require 'ido)
