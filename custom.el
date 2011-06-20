@@ -44,6 +44,9 @@
 ;; Add libs to path -----------------------------------------------------------
 (add-to-list 'load-path "~/Projetos/emacs-designer-kit/lib")
 
+(require 'zencoding-mode)
+(add-hook 'sgml-mode-hook 'zencoding-mode) ;; Auto-start on any markup modes
+
 (require 'workgroups)
 (setq wg-morph-on nil)
 (setq wg-prefix-key (kbd "<M-f1>")) 
@@ -149,3 +152,6 @@
 (add-to-list 'auto-mode-alist '("\\.html$" . html-mode))
 (add-to-list 'auto-mode-alist '("\\.haml$" . haml-mode))
 (add-to-list 'auto-mode-alist '("profile" . shell-script-mode))
+
+;; Marmelade
+;;(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/")
