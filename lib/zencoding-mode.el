@@ -159,7 +159,7 @@
 
 (defun zencoding-default-filter ()
   "Default filter(s) to be used if none is specified."
-  (let* ((file-ext (car (zencoding-regex ".*\\(\\..*\\)"(buffer-file-name) 1)))
+  (let* ((file-ext (car (zencoding-regex ".*\\(\\..*\\)" (or (buffer-file-name) "") 1)))
          (defaults '(".html" ("html")
                      ".htm"  ("html")
                      ".haml" ("haml")
@@ -784,7 +784,7 @@
     (if (first expr)
         (list (first expr) start end))))
 
-(defcustom zencoding-indentation 4
+(defcustom zencoding-indentation 2
   "Number of spaces used for indentation."
   :type '(number :tag "Spaces")
   :group 'zencoding)
