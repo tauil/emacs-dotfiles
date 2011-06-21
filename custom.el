@@ -1,7 +1,5 @@
 ;; This is a simple emacs config file with some lisp scripts that I like to use.
 
-;; I've called emacs-designer-kit cause it's based on emacs-starter-kit but simple.
-
 ;; Rafael B. Tauil - rafael.tauil.com.br
 
 ;; Initial configs
@@ -42,7 +40,7 @@
 (getenv "~/.profile")
 
 ;; Add libs to path -----------------------------------------------------------
-(add-to-list 'load-path "~/Projetos/emacs-designer-kit/lib")
+(add-to-list 'load-path "~/Projetos/emacs-dotfiles/lib/")
 
 (require 'zencoding-mode)
 (add-hook 'sgml-mode-hook 'zencoding-mode) ;; Auto-start on any markup modes
@@ -51,10 +49,10 @@
 (setq wg-morph-on nil)
 (setq wg-prefix-key (kbd "<M-f1>")) 
 (workgroups-mode 1)
-(wg-load "~/Projetos/emacs-designer-kit/wg-buffers-setup")
+(wg-load "wg-buffers-setup")
 
 (require 'rainbow-mode) ;; For coloring hex codes
-(require 'multi-term)
+;;(require 'multi-term)
 
 (require 'bm) 
 (require 'bookmark-add) 
@@ -90,7 +88,7 @@
 (yas/load-directory "~/Projetos/yasnippet/snippets")
 
 ;; Load Color Theme -----------------------------------------------------------
-(add-to-list 'load-path "~/Projetos/emacs-designer-kit/color-theme/")
+(add-to-list 'load-path "~/Projetos/emacs-dotfiles/color-theme")
 (require 'color-theme)
 (eval-after-load "color-theme"
   '(progn
@@ -155,3 +153,5 @@
 
 ;; Marmelade
 ;;(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/")
+
+(message "------ End of loading ------")
