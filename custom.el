@@ -21,6 +21,7 @@
 (setq auto-save-default nil) ;; Disable auto save
 (show-paren-mode 1) ;; Highlight matching parentheses when the point is on them.
 (menu-bar-mode 1) ;; You really don't need this; trust me.
+(global-linum-mode 1) ;; Show line numbers
 (recentf-mode 1) ;; Save a list of recent files visited.
 (setq inhibit-splash-screen t) ;; Do not show splash screen
 (setq display-time-day-and-date t) (display-time) ;; Make the display of date and time persistent.
@@ -42,6 +43,24 @@
 ;; Add libs to path -----------------------------------------------------------
 (add-to-list 'load-path "~/Projetos/emacs-dotfiles/lib/")
 
+;; Added ack
+(require 'ack)
+(autoload 'ack-same "full-ack" nil t)
+(autoload 'ack "full-ack" nil t)
+(autoload 'ack-find-same-file "full-ack" nil t)
+(autoload 'ack-find-file "full-ack" nil t)
+
+;; Add numbers to windows
+(require 'window-numbering)
+(window-numbering-mode 1)
+(setq window-numbering-assign-func
+      (lambda () (when (equal (buffer-name) "*Calculator*") 9)))
+
+;; Lua mode
+(setq auto-mode-alist (cons '("\\.lua$" . lua-mode) auto-mode-alist))
+(autoload 'lua-mode "lua-mode" "Lua editing mode." t)
+(add-hook 'lua-mode-hook 'turn-on-font-lock)
+
 (require 'zencoding-mode)
 (add-hook 'sgml-mode-hook 'zencoding-mode) ;; Auto-start on any markup modes
 
@@ -49,16 +68,14 @@
 (setq wg-morph-on nil)
 (setq wg-prefix-key (kbd "<M-f1>")) 
 (workgroups-mode 1)
-(wg-load "wg-buffers-setup")
+(wg-load "~/Projetos/emacs-dotfiles/wg-buffers-setup")
 
 (require 'rainbow-mode) ;; For coloring hex codes
+(require 'markdown-mode)
 ;;(require 'multi-term)
 
 (require 'bm) 
-(require 'bookmark-add) 
-
-(require 'linum) ;; Show line numbers
-(global-linum-mode 1)
+(require 'bookmark-add)
 
 ;; Automaticaly pair braces
 (require 'autopair)
@@ -144,12 +161,14 @@
 (add-to-list 'auto-mode-alist '("\\.css$" . css-mode))
 (add-to-list 'auto-mode-alist '("\\.ya?ml$" . yaml-mode))
 (add-to-list 'auto-mode-alist '("\\.rb$" . ruby-mode))
+(add-to-list 'auto-mode-alist '("\\.yml$" . ruby-mode))
 (add-to-list 'auto-mode-alist '("Rakefile$" . ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.js\\(on\\)?$" . javascript-mode))
 (add-to-list 'auto-mode-alist '("\\.xml$" . nxml-mode))
 (add-to-list 'auto-mode-alist '("\\.html$" . html-mode))
 (add-to-list 'auto-mode-alist '("\\.haml$" . haml-mode))
 (add-to-list 'auto-mode-alist '("profile" . shell-script-mode))
+(add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
 
 ;; Marmelade
 ;;(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/")
