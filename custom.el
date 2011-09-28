@@ -37,6 +37,20 @@
 (defalias 'fo 'find-file-other-window)
 (defalias 'pj "cd ~/Projetos")
 
+;; Load Color Theme -----------------------------------------------------------
+(add-to-list 'load-path "~/Projetos/emacs-dotfiles/color-theme")
+(require 'color-theme)
+(eval-after-load "color-theme"
+  '(progn
+     (color-theme-initialize)
+     (color-theme-hober)))
+
+;; Load my favorite theme ------------------------------------------------------
+(color-theme-nero)
+
+(modify-frame-parameters (selected-frame) '((alpha . 85))) ;; Backgroud transparency
+(global-hl-line-mode 1) ;; Current line color
+
 ; show env var named path
 (getenv "~/.profile")
 
@@ -98,25 +112,10 @@
 (ido-mode t)
 
 ;; Code auto-complete ---------------------------------------------------------
-(autoload 'html-helper-mode "html-helper-mode" "Yay HTML" t)
-(load-file "~/Projetos/yasnippet/yasnippet.el")
-(require 'yasnippet)
-(yas/initialize)
-(yas/load-directory "~/Projetos/yasnippet/snippets")
-
-;; Load Color Theme -----------------------------------------------------------
-(add-to-list 'load-path "~/Projetos/emacs-dotfiles/color-theme")
-(require 'color-theme)
-(eval-after-load "color-theme"
-  '(progn
-     (color-theme-initialize)
-     (color-theme-hober)))
-
-;; Load my favorite theme ------------------------------------------------------
-(color-theme-nero)
-
-(modify-frame-parameters (selected-frame) '((alpha . 85))) ;; Backgroud transparency
-(global-hl-line-mode 1) ;; Current line color
+(add-to-list 'load-path "~/Projetos/emacs-dotfiles/")
+(require 'auto-complete-config)
+(add-to-list 'ac-dictionary-directories "~/Projetos/emacs-dotfiles//ac-dict")
+(ac-config-default)
 
 ;;  Misc -----------------------------------------------------------------------
 (when window-system
