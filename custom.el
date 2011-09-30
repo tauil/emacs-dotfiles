@@ -136,6 +136,10 @@
 
 (global-unset-key "\C-z") ;C-z original desativado
 (global-set-key "\C-x\C-z" 'eshell)
+(global-set-key [(meta control up)] 'enlarge-window)
+(global-set-key [(meta control down)] 'shrink-window)
+(global-set-key [(meta shift right)] 'enlarge-window-horizontally)
+(global-set-key [(meta shift left)] 'shrink-window-horizontally)
 
 ;; Bookmark lines
 (global-set-key (kbd "<f2>") 'bm-toggle)
