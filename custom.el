@@ -3,6 +3,7 @@
 ;; Rafael B. Tauil - rafael.tauil.com.br
 
 ;; Initial configs
+(ansi-color-for-comint-mode-on)
 (setq color-theme-is-global t)
 (prefer-coding-system 'utf-8) ;; utf-8 setups
 (set-default-coding-systems 'utf-8)
@@ -150,6 +151,8 @@
 (global-set-key [(shift left)] 'windmove-left)
 (global-set-key [(shift right)] 'windmove-right)
 (global-set-key [(shift down)] 'windmove-down)
+
+(global-set-key [(meta shift f)] 'find-grep-dired)
 
 ;; Textmate minor-mode keybinds
 (global-set-key [(meta shift t)] 'textmate-goto-file)
