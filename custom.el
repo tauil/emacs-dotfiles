@@ -78,6 +78,10 @@
 ;; Add libs to path -----------------------------------------------------------
 (add-to-list 'load-path "~/Projetos/emacs-dotfiles/lib/")
 
+;; Add rvm
+(require 'rvm)
+(rvm-use-default) ;; use rvm's default ruby for the current Emacs session
+
 ;; Added ack
 (require 'ack)
 (autoload 'ack-same "full-ack" nil t)
