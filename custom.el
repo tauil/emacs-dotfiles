@@ -23,6 +23,26 @@
 (show-paren-mode 1) ;; Highlight matching parentheses when the point is on them.
 (menu-bar-mode 1) ;; You really don't need this; trust me.
 (global-linum-mode 1) ;; Show line numbers
+(tool-bar-mode -1) ;; Disable toolbar
+
+;;Show whitespace
+(global-whitespace-mode t)
+(setq whitespace-display-mappings
+      (quote ((newline-mark ?\n    [?\u00AC ?\n] [?$ ?\n])
+              (tab-mark     ?\t    [?\u25B8 ?\t] [?\u00BB ?\t] [?\\ ?\t]))))
+
+(setq whitespace-style
+      (quote (face tabs trailing space-before-tab newline
+                   indentation space-after-tab tab-mark newline-mark
+                   empty)))
+
+;; scroll one line at a time (less "jumpy" than defaults)
+(setq mouse-wheel-scroll-amount '(2 ((shift) . 10)) ;; two lines at a time
+      mouse-wheel-progressive-speed nil ;; don't accelerate scrolling
+      mouse-wheel-follow-mouse 't ;; scroll window under mouse
+      scroll-step 1 ;; keyboard scroll one line at a time
+      scroll-margin 0)
+
 (recentf-mode 1) ;; Save a list of recent files visited.
 (setq inhibit-splash-screen t) ;; Do not show splash screen
 (setq display-time-day-and-date t) (display-time) ;; Make the display of date and time persistent.
@@ -81,7 +101,7 @@
 
 (require 'workgroups)
 (setq wg-morph-on nil)
-(setq wg-prefix-key (kbd "<M-f1>")) 
+(setq wg-prefix-key (kbd "<M-f1>"))
 (workgroups-mode 1)
 (wg-load "~/Projetos/emacs-dotfiles/wg-buffers-setup")
 
@@ -89,12 +109,12 @@
 (require 'markdown-mode)
 ;;(require 'multi-term)
 
-(require 'bm) 
+(require 'bm)
 (require 'bookmark-add)
 
 ;; Automaticaly pair braces
 (require 'autopair)
-(autopair-global-mode) ;; enable autopair in all buffers 
+(autopair-global-mode) ;; enable autopair in all buffers
 
 ;; Add haml-mode
 (require 'haml-mode)
