@@ -372,9 +372,9 @@ over overlays with lower priority.  *Don't* use a negative number."
     (((class grayscale)
       (background dark))  (:background "LightGray"))
     (((class color)
-      (background light)) (:foreground "White" :background "DarkOrange1"))
+      (background light)) (:background "#666666"))
     (((class color)
-      (background dark))  (:foreground "Black" :background "DarkOrange1")))
+      (background dark))  (:background "#666666")))
   "Face used to highlight current line."
   :group 'bm)
 
