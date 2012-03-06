@@ -22,8 +22,8 @@
 (setq auto-save-default nil) ;; Disable auto save
 (show-paren-mode 1) ;; Highlight matching parentheses when the point is on them.
 (menu-bar-mode 1) ;; You really don't need this; trust me.
-(global-linum-mode 1) ;; Show line numbers
-(tool-bar-mode -1) ;; Disable toolbar
+(setq global-linum-mode 1) ;; Show line numbers
+(setq tool-bar-mode -1) ;; Disable toolbar
 
 ;;Show whitespace
 (global-whitespace-mode t)
@@ -46,7 +46,7 @@
 (recentf-mode 1) ;; Save a list of recent files visited.
 (setq inhibit-splash-screen t) ;; Do not show splash screen
 (setq display-time-day-and-date t) (display-time) ;; Make the display of date and time persistent.
-(scroll-bar-mode nil)
+(setq scroll-bar-mode nil)
 (setq-default mode-line-buffer-identification (propertized-buffer-identification "%20f"))  ;; Add full path to file name
 (setq ruby-insert-encoding-magic-comment nil) ;; Avoid emacs to insert utf8 comment in ruby-mode
 
@@ -77,6 +77,9 @@
 
 ;; Add libs to path -----------------------------------------------------------
 (add-to-list 'load-path "~/Projetos/emacs-dotfiles/lib/")
+;;(add-to-list 'load-path "~/Projetos/emacs-dotfiles/to_test/")
+;;(require 'generic-edit-special)
+;;(eval-after-load "sgml-mode" '(define-key sgml-mode-map [(control c) ?'] 'ges/org-edit-special))
 
 ;; Add rvm
 (require 'rvm)
@@ -143,21 +146,22 @@
 (ac-config-default)
 
 ;;  Misc -----------------------------------------------------------------------
+(defun fullscreen ()
+  (interactive)
+  (ns-toggle-fullscreen))
+
 (when window-system
   ;; (setq frame-title-forma0t '(buffer-file-name "%f" ("%b")))
   (setq frame-title-format '(buffer-file-name "%f" ("%b")))
   (tooltip-mode -1)
   (tool-bar-mode -1)
-  (blink-cursor-mode -1))
+  (blink-cursor-mode -1)
+  (fullscreen)
+  (global-set-key "\M-m" 'fullscreen))
 
 ;; Other keybinds
 (global-set-key [(control shift c)] 'comment-or-uncomment-region)
 (global-set-key "\M-g" 'goto-line)
-(defun fullscreen ()
-  (interactive)
-  (ns-toggle-fullscreen))
-(fullscreen)
-(global-set-key "\M-m" 'fullscreen)
 
 (global-unset-key "\C-z") ;C-z original desativado
 (global-set-key "\C-x\C-z" 'eshell)
