@@ -30,3 +30,21 @@
 ;; Load my favorite theme ------------------------------------------------------
 (color-theme-nero)
 (modify-frame-parameters (selected-frame) '((alpha . 85))) ;; Backgroud transparency
+
+(defun fullscreen ()
+  (interactive)
+  (ns-toggle-fullscreen))
+
+(when window-system
+  (setq frame-title-format '(buffer-file-name "%f" ("%b")))
+  (tooltip-mode -1)
+  (tool-bar-mode -1)
+  (blink-cursor-mode -1)
+  (fullscreen)
+  (global-set-key "\M-m" 'fullscreen))
+
+(require 'workgroups)
+(setq wg-morph-on nil)
+(setq wg-prefix-key (kbd "<M-f1>"))
+(workgroups-mode 1)
+(wg-load "~/Projetos/emacs-dotfiles/wg-buffers-setup")
