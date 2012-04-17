@@ -1,0 +1,12 @@
+alias pj cd ~/Projetos
+alias em cd ~/Projetos/emacs-dotfiles
+alias ck git checkout
+alias gs git status
+alias gc git commit -a
+alias gp git push
+alias gst git stash
+alias gstp git stash pop
+alias dif git diff --color
+alias dbc rake db:create
+alias dbm rake db:migrate
+alias dbd rake db:drop
