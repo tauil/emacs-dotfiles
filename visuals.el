@@ -3,10 +3,8 @@
 (global-linum-mode) ;; Show line numbers
 (show-paren-mode) ;; Highlight matching parentheses when the point is on them.
 (display-time)
-(blink-cursor-mode -1)
 (set-fringe-style -1)
 (scroll-bar-mode -1)
-(global-hl-line-mode) ;; Current line color
 
 ;;Show whitespace
 (global-whitespace-mode t)
@@ -27,10 +25,6 @@
      (color-theme-initialize)
      (color-theme-hober)))
 
-;; Load my favorite theme ------------------------------------------------------
-(color-theme-nero)
-(modify-frame-parameters (selected-frame) '((alpha . 85))) ;; Backgroud transparency
-
 (defun fullscreen ()
   (interactive)
   (ns-toggle-fullscreen))
@@ -38,9 +32,11 @@
 (when window-system
   (setq frame-title-format '(buffer-file-name "%f" ("%b")))
   (tooltip-mode -1)
-  (tool-bar-mode -1)
   (blink-cursor-mode -1)
   (fullscreen)
+  (color-theme-nero) ;; Load my favorite theme
+  (global-hl-line-mode) ;; Current line color
+  (modify-frame-parameters (selected-frame) '((alpha . 85))) ;; Backgroud transparency
   (global-set-key "\M-m" 'fullscreen))
 
 (require 'workgroups)
