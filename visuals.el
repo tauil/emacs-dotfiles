@@ -6,7 +6,7 @@
 (set-fringe-style -1)
 (scroll-bar-mode -1)
 
-;;Show whitespace
+;; Show Whitespaces -----------------------------------------------------------
 (global-whitespace-mode t)
 (setq whitespace-display-mappings
       (quote ((newline-mark ?\n    [?\u00AC ?\n] [?$ ?\n])
@@ -16,6 +16,14 @@
       (quote (face tabs trailing space-before-tab newline
                    indentation space-after-tab tab-mark newline-mark
                    empty)))
+
+(require 'workgroups)
+(setq wg-morph-on nil)
+(setq wg-prefix-key (kbd "<M-f1>"))
+(workgroups-mode 1)
+(wg-load
+ (concat mydir
+         (convert-standard-filename "wg-buffers-setup")))
 
 ;; Load Color Theme -----------------------------------------------------------
 (add-to-list 'load-path
@@ -40,11 +48,3 @@
   (global-hl-line-mode) ;; Current line color
   (modify-frame-parameters (selected-frame) '((alpha . 85))) ;; Backgroud transparency
   (global-set-key "\M-m" 'fullscreen))
-
-(require 'workgroups)
-(setq wg-morph-on nil)
-(setq wg-prefix-key (kbd "<M-f1>"))
-(workgroups-mode 1)
-(wg-load
- (concat mydir
-         (convert-standard-filename "wg-buffers-setup")))
