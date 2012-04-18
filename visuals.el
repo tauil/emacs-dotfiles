@@ -18,7 +18,9 @@
                    empty)))
 
 ;; Load Color Theme -----------------------------------------------------------
-(add-to-list 'load-path "~/Projetos/emacs-dotfiles/color-theme")
+(add-to-list 'load-path
+             (concat mydir
+                     (convert-standard-filename "color-theme/")))
 (require 'color-theme)
 (eval-after-load "color-theme"
   '(progn
@@ -43,4 +45,6 @@
 (setq wg-morph-on nil)
 (setq wg-prefix-key (kbd "<M-f1>"))
 (workgroups-mode 1)
-(wg-load "~/Projetos/emacs-dotfiles/wg-buffers-setup")
+(wg-load
+ (concat mydir
+         (convert-standard-filename "wg-buffers-setup")))

@@ -1,9 +1,8 @@
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 
-(if (eq system-type 'darwin)
-    (setenv "PATH" "/usr/local/bin:/opt/local/bin:/opt/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin"))
-
-(setq eshell-aliases-file "~/Projetos/emacs-dotfiles/aliases")
+(setq eshell-aliases-file
+      (concat mydir
+              (convert-standard-filename "aliases")))
 
 (defalias 'ff 'find-file)
 (defalias 'fo 'find-file-other-window)
