@@ -1,5 +1,5 @@
-alias pj cd ~/Projetos
-alias em cd ~/Projetos/emacs-dotfiles
+alias pj cd ~/Projects
+alias em cd ~/Projects/emacs-dotfiles
 alias ck git checkout
 alias gs git status
 alias gc git commit -a
