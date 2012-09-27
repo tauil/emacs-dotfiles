@@ -1,0 +1,8 @@
+# contributor: Rafael B. Tauil <rafael@tauil.com.br>
+# name: border-radius
+# key: br
+# --
+-webkit-border-radius: $1;
+-moz-border-radius: $1;
+border-radius: $1;
+-moz-background-clip: padding; -webkit-background-clip: padding-box; background-clip: padding-box;
