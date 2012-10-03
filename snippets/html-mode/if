@@ -1,0 +1,5 @@
+# contributor: Rafael B. Tauil <rafael@tauil.com.br>
+# name: ruby sintax
+# key: if
+# --
+<% if $1 %>
