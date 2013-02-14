@@ -16,4 +16,4 @@
 (set-selection-coding-system 'utf-8)
 
 ;; Avoid emacs to insert utf8 comment in ruby-mode
-(setq ruby-insert-encoding-magic-comment nil)
+(setq ruby-insert-encoding-magic-comment 1)
