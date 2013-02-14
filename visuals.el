@@ -46,7 +46,7 @@
   (fullscreen)
   (color-theme-nero) ;; Load my favorite theme
   (global-hl-line-mode) ;; Current line color
-  (modify-frame-parameters (selected-frame) '((alpha . 85))) ;; Backgroud transparency
+  (modify-frame-parameters (selected-frame) '((alpha . 95))) ;; Backgroud transparency
   (global-set-key "\M-m" 'fullscreen))
 
 (require 'uniquify)
