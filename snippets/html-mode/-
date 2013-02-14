@@ -1,5 +1,5 @@
 # contributor: Rafael B. Tauil <rafael@tauil.com.br>
-# name: ruby print sintax
-# key: =
+# name: ruby sintax
+# key: -
 # --
-<%= $1 %>
+<% $1 %>

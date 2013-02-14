@@ -1,0 +1,7 @@
+# contributor: Rafael B. Tauil <rafael@tauil.com.br>
+# name: border-radius-side
+# key: brs
+# --
+-webkit-border-$1-$2-radius: $3;
+-moz-border-radius-$1$2: $3;
+border-$1-$2-radius: $3;
