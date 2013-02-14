@@ -8,6 +8,12 @@
              (concat mydir
                      (convert-standard-filename "lib/")))
 
+(require 'package)
+(add-to-list 'package-archives 
+    '("marmalade" .
+      "http://marmalade-repo.org/packages/"))
+(package-initialize)
+
 (load "defaults")
 (load "bindings")
 (load "eshell-setup")
