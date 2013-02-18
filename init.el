@@ -20,3 +20,4 @@
 (load "file-finding")
 (load "visuals")
 (load "dev")
+(load "apps")
