@@ -26,25 +26,24 @@
          (convert-standard-filename "wg-buffers-setup")))
 
 ;; Load Color Theme -----------------------------------------------------------
-(add-to-list 'load-path
-             (concat mydir
-                     (convert-standard-filename "color-theme/")))
-(require 'color-theme)
-(eval-after-load "color-theme"
-  '(progn
-     (color-theme-initialize)
-     (color-theme-hober)))
+(if (require 'monokai-theme nil 'noerror)
+    (message "Tema instalado!")
+  ((progn
+     (package-refresh-contents)
+     (package-install 'monokai-theme))))
 
-(defun fullscreen ()
-  (interactive)
-  (ns-toggle-fullscreen))
+(load-theme 'monokai t)
+
+;; Removed from new Emacs version :(
+;; (defun fullscreen ()
+;;   (interactive)
+;;   (ns-toggle-fullscreen))
 
 (when window-system
   (setq frame-title-format '(buffer-file-name "%f" ("%b")))
   (tooltip-mode -1)
   (blink-cursor-mode -1)
-  (fullscreen)
-  (color-theme-nero) ;; Load my favorite theme
+  ;; (fullscreen)
   (global-hl-line-mode) ;; Current line color
   (modify-frame-parameters (selected-frame) '((alpha . 95))) ;; Backgroud transparency
   (global-set-key "\M-m" 'fullscreen))

@@ -1,6 +1,7 @@
-(add-to-list 'load-path
-             (concat mydir
-                     (convert-standard-filename "../yasnippet/")))
+(if (require 'yasnippet nil 'noerror)
+    (message "Yasnippet já instalado!")
+  (package-install 'yasnippet))
+
 (require 'yasnippet)
 (yas/global-mode 1)
 (setq yas/snippet-dirs
@@ -14,13 +15,26 @@
                      (convert-standard-filename "ac-dict")))
 (ac-config-default)
 
-(require 'rainbow-mode) ;; For coloring hex codes
+;; For coloring hex codes
+(if (require 'rainbow-mode nil 'noerror)
+    (message "rainbow-mode já instalado!")
+  (package-install 'rainbow-mode))
+
+(require 'rainbow-mode)
+
+(if (require 'haml-mode nil 'noerror)
+    (message "haml-mode já instalado!")
+  (package-install 'rainbow-mode))
 
 (require 'haml-mode)
 (add-hook 'haml-mode-hook
                (lambda ()
                  (setq indent-tabs-mode nil)
                  (define-key haml-mode-map "\C-m" 'newline-and-indent)))
+
+(if (require 'sass-mode nil 'noerror)
+    (message "sass-mode já instalado!")
+  (package-install 'sass-mode))
 
 (require 'sass-mode)
 
