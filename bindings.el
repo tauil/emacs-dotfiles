@@ -34,3 +34,9 @@
 (global-set-key [(meta down)] 'textmate-column-down)
 (global-set-key [(meta shift up)] 'textmate-column-up-with-select)
 (global-set-key [(meta shift down)] 'textmate-column-down-with-select)
+
+(global-set-key (kbd "C-n")
+                (lambda () (interactive) (next-line 5)))
+
+(global-set-key (kbd "C-p")
+                (lambda () (interactive) (previous-line 5)))

@@ -14,6 +14,16 @@
       "http://marmalade-repo.org/packages/"))
 (package-initialize)
 
+;; Thanks to Jim Weirich
+(defun msg (msg-text)
+  "Write a message to the scratch buffer"
+  (interactive "sMessage: ")
+  (save-excursion
+    (set-buffer (get-buffer-create "*msg*"))
+    (goto-char (point-max))
+    (insert-string msg-text)
+    (insert-string "\n") ))
+
 (load "defaults")
 (load "bindings")
 (load "eshell-setup")
