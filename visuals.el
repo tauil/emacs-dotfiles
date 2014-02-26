@@ -17,6 +17,7 @@
                    indentation space-after-tab tab-mark newline-mark
                    empty)))
 
+(package-install 'workgroups)
 (require 'workgroups)
 (setq wg-morph-on nil)
 (setq wg-prefix-key (kbd "<M-f1>"))
@@ -25,19 +26,12 @@
  (concat mydir
          (convert-standard-filename "wg-buffers-setup")))
 
+(package-install 'autopair)
+(require 'autopair)
+
 ;; Load Color Theme -----------------------------------------------------------
-(if (require 'monokai-theme nil 'noerror)
-    (message "Tema instalado!")
-  ((progn
-     (package-refresh-contents)
-     (package-install 'monokai-theme))))
-
+(package-install 'monokai-theme)
 (load-theme 'monokai t)
-
-;; Removed from new Emacs version :(
-;; (defun fullscreen ()
-;;   (interactive)
-;;   (ns-toggle-fullscreen))
 
 (when window-system
   (setq frame-title-format '(buffer-file-name "%f" ("%b")))

@@ -1,7 +1,4 @@
-(if (require 'yasnippet nil 'noerror)
-    (message "Yasnippet já instalado!")
-  (package-install 'yasnippet))
-
+(package-install 'yasnippet)
 (require 'yasnippet)
 (yas/global-mode 1)
 (setq yas/snippet-dirs
@@ -16,26 +13,17 @@
 (ac-config-default)
 
 ;; For coloring hex codes
-(if (require 'rainbow-mode nil 'noerror)
-    (message "rainbow-mode já instalado!")
-  (package-install 'rainbow-mode))
-
+(package-install 'rainbow-mode)
 (require 'rainbow-mode)
 
-(if (require 'haml-mode nil 'noerror)
-    (message "haml-mode já instalado!")
-  (package-install 'rainbow-mode))
-
+(package-install 'haml-mode)
 (require 'haml-mode)
 (add-hook 'haml-mode-hook
                (lambda ()
                  (setq indent-tabs-mode nil)
                  (define-key haml-mode-map "\C-m" 'newline-and-indent)))
 
-(if (require 'sass-mode nil 'noerror)
-    (message "sass-mode já instalado!")
-  (package-install 'sass-mode))
-
+(package-install 'sass-mode)
 (require 'sass-mode)
 
 ;; Associate modes with file extensions
