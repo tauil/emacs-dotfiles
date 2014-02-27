@@ -30,8 +30,8 @@
 (require 'autopair)
 
 ;; Load Color Theme -----------------------------------------------------------
-(package-install 'monokai-theme)
-(load-theme 'monokai t)
+;;(package-install 'monokai-theme)
+(load-theme 'neo-nero t)
 
 (when window-system
   (setq frame-title-format '(buffer-file-name "%f" ("%b")))
