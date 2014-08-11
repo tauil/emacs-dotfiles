@@ -7,6 +7,8 @@
 (setq cssm-newline-before-closing-bracket t)
 (setq cssm-indent-function #'cssm-c-style-indenter)
 (setq cssm-mirror-mode nil)
+(setq css-indent-offset 2)
+(setq js-indent-level 2)
 
 ;; utf-8 setups
 (prefer-coding-system 'utf-8)
