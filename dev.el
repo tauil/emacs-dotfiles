@@ -26,6 +26,14 @@
 (package-install 'sass-mode)
 (require 'sass-mode)
 
+(package-install 'fill-column-indicator)
+(require 'fill-column-indicator)
+(setq fci-rule-width 1)
+(setq fci-rule-color "#AE81FF")
+(setq fci-rule-column 120)
+(setq fci-rule-use-dashes 1)
+(setq fci-dash-pattern 0.2)
+
 ;; Associate modes with file extensions
 (add-to-list 'auto-mode-alist '("COMMIT_EDITMSG$" . diff-mode))
 (add-to-list 'auto-mode-alist '("\\.css$" . css-mode))
