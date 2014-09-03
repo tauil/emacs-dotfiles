@@ -51,3 +51,5 @@
 (add-to-list 'auto-mode-alist '("\\.scss$" . scss-mode))
 (add-to-list 'auto-mode-alist '("profile" . shell-script-mode))
 (add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
+(add-to-list 'auto-mode-alist '(".envrc$" . shell-script-mode))
+(add-to-list 'auto-mode-alist '("\\.js.erb$" . web-mode))
