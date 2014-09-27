@@ -1,5 +1,6 @@
 (setq backup-inhibited t) ;; Disable backup
 (setq auto-save-default nil) ;; Disable auto save
+(setq visible-bell 1) ;; Visual bell instead of annoying bell
 
 (setq-default indent-tabs-mode nil)
 (setq c-indent-level 2)
