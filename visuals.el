@@ -36,10 +36,9 @@
   (setq frame-title-format '(buffer-file-name "%f" ("%b")))
   (tooltip-mode -1)
   (blink-cursor-mode -1)
-  ;; (fullscreen)
   (global-hl-line-mode) ;; Current line color
   (modify-frame-parameters (selected-frame) '((alpha . 95))) ;; Backgroud transparency
-  (global-set-key "\M-m" 'fullscreen))
+  (global-set-key "\M-m" 'toggle-frame-fullscreen))
 
 (require 'uniquify)
 (setq
