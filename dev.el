@@ -34,6 +34,14 @@
 (setq fci-rule-use-dashes 1)
 (setq fci-dash-pattern 0.2)
 
+;; Automaticaly close ruby blocks
+(package-install 'ruby-end)
+(require 'ruby-end)
+
+;; Some useful hooks for Ruby development. More info at: https://github.com/rejeep/ruby-tools.el
+(package-install 'ruby-tools)
+(require 'ruby-tools)
+
 ;; Associate modes with file extensions
 (add-to-list 'auto-mode-alist '("COMMIT_EDITMSG$" . diff-mode))
 (add-to-list 'auto-mode-alist '("\\.css$" . css-mode))
@@ -53,3 +61,4 @@
 (add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
 (add-to-list 'auto-mode-alist '(".envrc$" . shell-script-mode))
 (add-to-list 'auto-mode-alist '("\\.js.erb$" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.css.scss$" . sass-mode))
