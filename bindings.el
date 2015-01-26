@@ -1,6 +1,6 @@
 ;; Change meta to apple command key
 (setq mac-command-modifier 'meta)
-(setq mac-option-modifier 'none)
+(setq mac-option-modifier 'option)
 
 ;; Misc
 (global-set-key [(control shift c)] 'comment-or-uncomment-region)
@@ -60,3 +60,8 @@
                (message "File '%s' successfully renamed to '%s'" name (file-name-nondirectory new-name))))))))
 
 (global-set-key (kbd "C-c r") 'rename-this-buffer-and-file)
+
+(global-set-key [(control alt 'up)] 'drag-stuff-up)
+(global-set-key [(control alt 'down)] 'drag-stuff-down)
+(global-set-key [(control alt 'right)] 'drag-stuff-right)
+(global-set-key [(control alt 'left)] 'drag-stuff-left)
