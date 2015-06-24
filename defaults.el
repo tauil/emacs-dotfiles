@@ -5,6 +5,7 @@
 (setq-default indent-tabs-mode nil)
 (setq c-indent-level 2)
 (setq cssm-indent-level 2)
+(setq web-mode-markup-indent-offset 2)
 (setq cssm-newline-before-closing-bracket t)
 (setq cssm-indent-function #'cssm-c-style-indenter)
 (setq cssm-mirror-mode nil)
