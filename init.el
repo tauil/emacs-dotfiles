@@ -1,6 +1,20 @@
 ;; My emacs setup.
 ;; Rafael B. Tauil - rafael.tauil.com.br
 
+;; To test
+;; (use-package try
+;;              :ensure t)
+
+;; (use-package which-key
+;;              :ensure t
+;;              :config
+;;              (which-key-mode))
+
+;; (use-package org-bullets
+;;              :ensure t
+;;              :config
+;;              (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
+
 (setq mydir "~/Projects/emacs-dotfiles/")
 
 (add-to-list 'load-path (file-name-directory (or (buffer-file-name) load-file-name)))

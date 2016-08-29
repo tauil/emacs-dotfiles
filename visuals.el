@@ -17,17 +17,17 @@
                    indentation space-after-tab tab-mark newline-mark
                    empty)))
 
-(package-install 'workgroups)
-(require 'workgroups)
-(setq wg-morph-on nil)
-(setq wg-prefix-key (kbd "<M-f1>"))
-(workgroups-mode 1)
-(wg-load
- (concat mydir
-         (convert-standard-filename "wg-buffers-setup")))
+;;(package-install 'workgroups2)
+;;(require 'workgroups2)
+;; (setq wg-morph-on nil)
+;; (setq wg-prefix-key (kbd "<M-f1>"))
+;; (workgroups-mode 1)
+;; (wg-load
+;;  (concat mydir
+;;          (convert-standard-filename "wg-buffers-setup")))
 
-(package-install 'autopair)
-(require 'autopair)
+;;(package-install 'autopair)
+;;(require 'autopair)
 
 ;; Load Color Theme -----------------------------------------------------------
 (load "neo-nero-theme")
@@ -40,7 +40,7 @@
   (modify-frame-parameters (selected-frame) '((alpha . 95))) ;; Backgroud transparency
   (global-set-key "\M-m" 'toggle-frame-fullscreen))
 
-(require 'uniquify)
-(setq
- uniquify-buffer-name-style 'post-forward
- uniquify-separator ":")
+;; (require 'uniquify)
+;; (setq
+;;  uniquify-buffer-name-style 'post-forward
+;;  uniquify-separator ":")

@@ -13,3 +13,7 @@
       (ansi-color-apply-on-region eshell-last-output-start
                                   eshell-last-output-end))
     (add-to-list 'eshell-output-filter-functions 'eshell-handle-ansi-color)
+
+(use-package exec-path-from-shell
+  :ensure t)
+(exec-path-from-shell-initialize)

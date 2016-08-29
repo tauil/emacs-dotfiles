@@ -1,12 +1,12 @@
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 (iswitchb-mode)
 
-(package-install 'ido)
-(require 'ido)
+;;(package-install 'idomenu)
+;;(require 'idomenu)
 (ido-mode t)
 
-(package-install 'textmate)
-(require 'textmate)
+;; (package-install 'textmate)
+;; (require 'textmate)
 (textmate-mode)
 
 (require 'window-numbering)

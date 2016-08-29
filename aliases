@@ -1,12 +1,13 @@
-alias pj cd ~/Projects
-alias em cd ~/Projects/emacs-dotfiles
-alias ck git checkout
-alias gs git status
-alias gc git commit -a
-alias gp git push
-alias gst git stash
-alias gstp git stash pop
-alias dif git diff --color
-alias dbc rake db:create
-alias dbm rake db:migrate
+alias -rw-rw-r--  $*
 alias dbd rake db:drop
+alias dbm rake db:migrate
+alias dbc rake db:create
+alias dif git diff --color
+alias gstp git stash pop
+alias gst git stash
+alias gp git push
+alias gc git commit -a
+alias gs git status
+alias ck git checkout
+alias em cd ~/Projects/emacs-dotfiles
+alias pj cd ~/Projects
