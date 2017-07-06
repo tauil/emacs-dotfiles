@@ -6,6 +6,7 @@
 ;;               (convert-standard-filename "snippets")))
 ;; (yas/load-directory yas/snippet-dirs)
 
+(package-install 'auto-complete)
 (require 'auto-complete-config)
 (add-to-list 'ac-dictionary-directories
              (concat mydir
@@ -13,18 +14,21 @@
 (ac-config-default)
 
 ;; For coloring hex codes
-;; (package-install 'rainbow-mode)
-;; (require 'rainbow-mode)
+(package-install 'rainbow-mode)
+(require 'rainbow-mode)
 
-;; (package-install 'haml-mode)
-;; (require 'haml-mode)
+(package-install 'haml-mode)
+(require 'haml-mode)
 (add-hook 'haml-mode-hook
                (lambda ()
                  (setq indent-tabs-mode nil)
                  (define-key haml-mode-map "\C-m" 'newline-and-indent)))
 
-;; (package-install 'sass-mode)
-;; (require 'sass-mode)
+(package-install 'web-mode)
+(package-install 'typescript)
+
+(package-install 'sass-mode)
+(require 'sass-mode)
 
 ;; (package-install 'fill-column-indicator)
 ;; (require 'fill-column-indicator)
@@ -42,6 +46,7 @@
 ;; (package-install 'ruby-tools)
 ;; (require 'ruby-tools)
 
+(package-install 'magit)
 (require 'magit)
 (global-set-key (kbd "C-x g") 'magit-status)
 (global-set-key (kbd "C-x v") 'magit-log-buffer-file)

@@ -5,7 +5,8 @@
 (display-time)
 (set-fringe-style -1)
 (scroll-bar-mode -1)
-
+(menu-bar-mode -1)
+(set-default-font "DejaVu Sans Mono-11")
 ;; Show Whitespaces -----------------------------------------------------------
 (global-whitespace-mode t)
 (setq whitespace-display-mappings
@@ -30,14 +31,26 @@
 ;;(require 'autopair)
 
 ;; Load Color Theme -----------------------------------------------------------
-(load "neo-nero-theme")
+;; (load (concat mydir
+;;               (convert-standard-filename "neo-nero-theme")))
+
+(load (concat mydir
+              (convert-standard-filename "cherry-blossom-theme")))
+
+(set-frame-parameter (selected-frame) 'alpha '(90 90))
+(add-to-list 'default-frame-alist '(alpha 90 90))
+
+(defun set-transparency (onfocus notfocus)
+  "Set the transparency for emacs. Values are from 0 - 100"
+  (interactive "nOn Focus: \nnOn Unfocus: ")
+  (set-frame-parameter (selected-frame) 'alpha (list onfocus notfocus)))
 
 (when window-system
   (setq frame-title-format '(buffer-file-name "%f" ("%b")))
   (tooltip-mode -1)
   (blink-cursor-mode -1)
   (global-hl-line-mode) ;; Current line color
-  (modify-frame-parameters (selected-frame) '((alpha . 95))) ;; Backgroud transparency
+  (modify-frame-parameters (selected-frame) '((alpha . 80))) ;; Backgroud transparency
   (global-set-key "\M-m" 'toggle-frame-fullscreen))
 
 ;; (require 'uniquify)

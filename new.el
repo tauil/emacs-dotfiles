@@ -16,6 +16,7 @@
 (display-time)
 (set-fringe-style -1)
 (scroll-bar-mode -1)
+(menu-bar-mode -1)
 
 (when window-system
   (setq frame-title-format '(buffer-file-name "%f" ("%b")))
@@ -24,9 +25,10 @@
   (global-hl-line-mode) ;; Current line color
   (modify-frame-parameters (selected-frame) '((alpha . 95))) ;; Backgroud transparency
   (global-set-key "\M-m" 'toggle-frame-fullscreen)
-  (load-theme `deeper-blue t)
+  ;;(load-theme `deeper-blue t)
+  (load-theme `paganini t)
   (if (> (x-display-pixel-width) 1280)
-      (set-frame-size (selected-frame) 309 99)
+      (set-frame-size (selected-frame) 231 55)
     (set-frame-size (selected-frame) 182 60)))
 
 ;; Show Whitespaces -----------------------------------------------------------
@@ -180,6 +182,7 @@
 (add-to-list 'auto-mode-alist '("\\.hbs$" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.haml$" . haml-mode))
 (add-to-list 'auto-mode-alist '("\\.scss$" . scss-mode))
+(add-to-list 'auto-mode-alist '("\\.scss$" . sass-mode))
 (add-to-list 'auto-mode-alist '("profile" . shell-script-mode))
 (add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
 (add-to-list 'auto-mode-alist '(".envrc$" . shell-script-mode))

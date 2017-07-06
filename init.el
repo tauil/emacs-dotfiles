@@ -15,18 +15,18 @@
 ;;              :config
 ;;              (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
 
-(setq mydir "~/Projects/emacs-dotfiles/")
+;; (setq mydir "~/Projects/emacs-dotfiles/")
 
-(add-to-list 'load-path (file-name-directory (or (buffer-file-name) load-file-name)))
-(add-to-list 'load-path
-             (concat mydir
-                     (convert-standard-filename "lib/")))
+;; (add-to-list 'load-path (file-name-directory (or (buffer-file-name) load-file-name)))
+;; (add-to-list 'load-path
+;;              (concat mydir
+;;                      (convert-standard-filename "lib/")))
 
-(require 'package)
-(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
-                         ("marmalade" . "http://marmalade-repo.org/packages/")
-                         ("melpa" . "http://melpa.milkbox.net/packages/")))
-(package-initialize)
+;; (require 'package)
+;; (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
+;;                          ("marmalade" . "http://marmalade-repo.org/packages/")
+;;                          ("melpa" . "http://melpa.milkbox.net/packages/")))
+;; (package-initialize)
 
 ;; Thanks to Jim Weirich
 (defun msg (msg-text)
@@ -38,10 +38,17 @@
     (insert-string msg-text)
     (insert-string "\n") ))
 
-(load "defaults")
-(load "bindings")
-(load "eshell-setup")
-(load "file-finding")
-(load "visuals")
-(load "dev")
-(load "apps")
+(load (concat mydir
+              (convert-standard-filename "defaults")))
+(load (concat mydir
+              (convert-standard-filename "bindings")))
+(load (concat mydir
+              (convert-standard-filename "eshell-setup")))
+(load (concat mydir
+              (convert-standard-filename "file-finding")))
+(load (concat mydir
+              (convert-standard-filename "visuals")))
+(load (concat mydir
+              (convert-standard-filename "dev")))
+(load (concat mydir
+              (convert-standard-filename "apps")))

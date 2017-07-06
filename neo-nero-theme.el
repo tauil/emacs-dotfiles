@@ -25,7 +25,7 @@
   "Neo-Nero color theme")
 
 (let ((neo-nero-blue-light "#89BDFF")
-      (neo-nero-gray "#595959")
+      (neo-nero-gray "#333333")
       (neo-nero-gray-darker "#383830")
       (neo-nero-gray-darkest "#141411")
       (neo-nero-gray-lightest "#595959")

@@ -10,6 +10,7 @@
 (setq cssm-indent-function #'cssm-c-style-indenter)
 (setq cssm-mirror-mode nil)
 (setq css-indent-offset 2)
+(setq sass-indent-offset 4)
 (setq js-indent-level 4)
 (setq web-mode-markup-indent-offset 2)
 

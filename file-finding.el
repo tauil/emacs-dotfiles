@@ -7,7 +7,7 @@
 
 ;; (package-install 'textmate)
 ;; (require 'textmate)
-(textmate-mode)
+;; (textmate-mode)
 
 (require 'window-numbering)
 (window-numbering-mode 1)
