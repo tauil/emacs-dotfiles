@@ -7,6 +7,7 @@
 
 (load "defaults")
 (load "eshell-setup")
+(load "night-owl-theme")
 
 ;; Visuals
 (setq inhibit-splash-screen t) ;; Do not show splash screen
@@ -17,6 +18,8 @@
 (set-fringe-style -1)
 (scroll-bar-mode -1)
 (menu-bar-mode -1)
+;;(setq scroll-step 1)
+(set-face-attribute 'default nil :height 150)
 
 (when window-system
   (setq frame-title-format '(buffer-file-name "%f" ("%b")))
@@ -25,10 +28,9 @@
   (global-hl-line-mode) ;; Current line color
   (modify-frame-parameters (selected-frame) '((alpha . 95))) ;; Backgroud transparency
   (global-set-key "\M-m" 'toggle-frame-fullscreen)
-  ;;(load-theme `deeper-blue t)
-  (load-theme `paganini t)
+  ;;(load-theme `clues t)
   (if (> (x-display-pixel-width) 1280)
-      (set-frame-size (selected-frame) 231 55)
+      (set-frame-size (selected-frame) 220 68)
     (set-frame-size (selected-frame) 182 60)))
 
 ;; Show Whitespaces -----------------------------------------------------------
@@ -166,6 +168,10 @@
 
 (global-set-key (kbd "C-c k") 'delete-this-buffer-and-file)
 
+;; Update path to make sure prettier works
+(setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
+(setq exec-path (append exec-path '("/usr/local/bin")))
+
 ;; Associate modes with file extensions
 (add-to-list 'auto-mode-alist '("COMMIT_EDITMSG$" . diff-mode))
 (add-to-list 'auto-mode-alist '("\\.css$" . css-mode))
@@ -175,7 +181,7 @@
 (add-to-list 'auto-mode-alist '("Rakefile$" . ruby-mode))
 (add-to-list 'auto-mode-alist '("Gemfile$" . ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.pp$" . ruby-mode))
-(add-to-list 'auto-mode-alist '("\\.js\\(on\\)?$" . javascript-mode))
+(add-to-list 'auto-mode-alist '("\\.js\\(on\\)?$" . rjsx-mode))
 (add-to-list 'auto-mode-alist '("\\.xml$" . nxml-mode))
 (add-to-list 'auto-mode-alist '("\\.html$" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.html.erb$" . web-mode))
@@ -189,3 +195,35 @@
 (add-to-list 'auto-mode-alist '(".env$" . shell-script-mode))
 (add-to-list 'auto-mode-alist '("\\.js.erb$" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.css.scss$" . sass-mode))
+(add-hook 'js2-jsx-mode-hook 'prettier-js-mode)
+
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(auto-save-default nil)
+ '(auto-save-interval 0)
+ '(auto-save-list-file-prefix nil)
+ '(auto-save-timeout 0)
+ '(auto-show-mode t t)
+ '(delete-auto-save-files nil)
+ '(delete-old-versions (quote other))
+ '(imenu-auto-rescan t)
+ '(imenu-auto-rescan-maxout 500000)
+ '(kept-new-versions 5)
+ '(kept-old-versions 5)
+ '(make-backup-file-name-function (quote ignore))
+ '(make-backup-files nil)
+ '(mouse-wheel-follow-mouse nil)
+ '(mouse-wheel-progressive-speed nil)
+ '(mouse-wheel-scroll-amount (quote (15)))
+ '(version-control nil))
+
+
+;; scroll one line at a time (less "jumpy" than defaults)
+(setq mouse-wheel-scroll-amount '(1 ((shift) . 5))) ;; one line at a time
+(setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
+(setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
+(setq scroll-step 25) ;; keyboard scroll one line at a time

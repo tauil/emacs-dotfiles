@@ -14,6 +14,6 @@
                                   eshell-last-output-end))
     (add-to-list 'eshell-output-filter-functions 'eshell-handle-ansi-color)
 
-(use-package exec-path-from-shell
-  :ensure t)
-(exec-path-from-shell-initialize)
+;;(use-package exec-path-from-shell
+;;  :ensure t)
+;;(exec-path-from-shell-initialize)
