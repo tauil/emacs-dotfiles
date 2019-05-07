@@ -7,7 +7,6 @@
 
 (load "defaults")
 (load "eshell-setup")
-(load "night-owl-theme")
 
 ;; Visuals
 (setq inhibit-splash-screen t) ;; Do not show splash screen
@@ -93,6 +92,16 @@
           (setq fci-rule-column 120)
           (setq fci-rule-use-dashes 1)
           (setq fci-dash-pattern 0.2)))
+
+(use-package night-owl-theme
+  :ensure t)
+(load "night-owl-theme")
+
+(use-package rjsx-mode
+  :ensure t)
+
+(use-package web-mode
+  :ensure t)
 
 ;; Key bindings
 
@@ -188,7 +197,7 @@
 (add-to-list 'auto-mode-alist '("\\.hbs$" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.haml$" . haml-mode))
 (add-to-list 'auto-mode-alist '("\\.scss$" . scss-mode))
-(add-to-list 'auto-mode-alist '("\\.scss$" . sass-mode))
+(add-to-list 'auto-mode-alist '("\\.sass$" . sass-mode))
 (add-to-list 'auto-mode-alist '("profile" . shell-script-mode))
 (add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
 (add-to-list 'auto-mode-alist '(".envrc$" . shell-script-mode))
