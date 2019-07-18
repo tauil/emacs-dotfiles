@@ -28,6 +28,7 @@
   (modify-frame-parameters (selected-frame) '((alpha . 95))) ;; Backgroud transparency
   (global-set-key "\M-m" 'toggle-frame-fullscreen)
   ;;(load-theme `clues t)
+  (if (string= (system-name) "ravioli.local") (set-frame-position (selected-frame) 1019 0))
   (if (> (x-display-pixel-width) 1280)
       (set-frame-size (selected-frame) 220 68)
     (set-frame-size (selected-frame) 182 60)))
