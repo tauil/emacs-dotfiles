@@ -203,6 +203,7 @@
 (add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
 (add-to-list 'auto-mode-alist '(".envrc$" . shell-script-mode))
 (add-to-list 'auto-mode-alist '(".env$" . shell-script-mode))
+(add-to-list 'auto-mode-alist '(".env.*$" . shell-script-mode))
 (add-to-list 'auto-mode-alist '("\\.js.erb$" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.css.scss$" . sass-mode))
 (add-hook 'js2-jsx-mode-hook 'prettier-js-mode)
