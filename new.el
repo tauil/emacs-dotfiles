@@ -79,6 +79,11 @@
 (use-package try
   :ensure t)
 
+(use-package find-file-in-project
+  :ensure t)
+(require 'find-file-in-project)
+(global-set-key (kbd "M-t") 'find-file-in-project)
+
 (use-package magit
   :ensure t
   :init (progn
