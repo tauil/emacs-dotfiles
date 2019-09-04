@@ -211,6 +211,8 @@
 (add-to-list 'auto-mode-alist '(".env.*$" . shell-script-mode))
 (add-to-list 'auto-mode-alist '("\\.js.erb$" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.css.scss$" . sass-mode))
+(add-to-list 'auto-mode-alist '("\\.ts$" . rjsx-mode))
+(add-to-list 'auto-mode-alist '("\\.tsx$" . rjsx-mode))
 (add-hook 'js2-jsx-mode-hook 'prettier-js-mode)
 
 
