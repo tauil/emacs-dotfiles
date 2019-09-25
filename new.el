@@ -82,9 +82,16 @@
 (use-package try
   :ensure t)
 
+(use-package rainbow-mode
+  :ensure t)
+
 (use-package find-file-in-project
   :ensure t)
 (require 'find-file-in-project)
+(setq ffip-prune-patterns `("*/cypress" ,@ffip-prune-patterns))
+(setq ffip-prune-patterns `("*/coverage" ,@ffip-prune-patterns))
+(setq ffip-prune-patterns `("*/android" ,@ffip-prune-patterns))
+(setq ffip-prune-patterns `("*/ios" ,@ffip-prune-patterns))
 (global-set-key (kbd "M-t") 'find-file-in-project)
 
 (use-package magit
