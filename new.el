@@ -33,7 +33,7 @@
   ;;(load-theme `clues t)
   (if (string= (system-name) "ravioli.local") (set-frame-position (selected-frame) 1019 0))
   (if (> (x-display-pixel-width) 1280)
-      (set-frame-size (selected-frame) 220 68)
+      (set-frame-size (selected-frame) 148 46)
     (set-frame-size (selected-frame) 182 60)))
 
 ;; Show Whitespaces -----------------------------------------------------------
@@ -117,6 +117,9 @@
   :ensure t)
 
 (use-package web-mode
+  :ensure t)
+
+(use-package yaml-mode
   :ensure t)
 
 ;; Key bindings
