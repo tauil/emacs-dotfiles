@@ -140,7 +140,7 @@
 (global-set-key [(meta shift left)] 'shrink-window-horizontally)
 
 ;; Grep dired
-(global-set-key [(meta shift f)] 'find-grep-dired)
+(global-set-key [(meta shift f)] 'rgrep)
 
 ;; Window
 (global-set-key [(shift up)] 'windmove-up)
@@ -205,7 +205,7 @@
 (add-to-list 'auto-mode-alist '("\\.css$" . css-mode))
 (add-to-list 'auto-mode-alist '("\\.ya?ml$" . yaml-mode))
 (add-to-list 'auto-mode-alist '("\\.rb$" . ruby-mode))
-(add-to-list 'auto-mode-alist '("\\.yml$" . ruby-mode))
+(add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
 (add-to-list 'auto-mode-alist '("Rakefile$" . ruby-mode))
 (add-to-list 'auto-mode-alist '("Gemfile$" . ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.pp$" . ruby-mode))
