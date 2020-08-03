@@ -1,3 +1,4 @@
+(add-to-list 'load-path "~/Projects/emacs-dotfiles/")
 (setq mydir "~/Projects/emacs-dotfiles/")
 
 (add-to-list 'load-path (file-name-directory (or (buffer-file-name) load-file-name)))
@@ -10,6 +11,10 @@
 
 (load "defaults")
 (load "eshell-setup")
+
+;; Change meta to apple command key
+(setq mac-command-modifier 'meta)
+(setq mac-option-modifier 'none)
 
 ;; Visuals
 (setq inhibit-splash-screen t) ;; Do not show splash screen
@@ -68,7 +73,7 @@
 (setq package-enable-at-startup nil)
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
                          ("marmalade" . "http://marmalade-repo.org/packages/")
-                         ("melpa" . "http://melpa.milkbox.net/packages/")))
+                         ("melpa" . "https://melpa.org/packages/")))
 (package-initialize)
 
 (unless (package-installed-p 'use-package)
@@ -123,10 +128,6 @@
   :ensure t)
 
 ;; Key bindings
-
-;; Change meta to apple command key
-(setq mac-command-modifier 'meta)
-(setq mac-option-modifier 'none)
 
 ;; Misc
 (global-set-key [(control shift c)] 'comment-or-uncomment-region)
