@@ -162,6 +162,9 @@
                           (next-line 4)
                           (scroll-up 4)) )
 
+;; SMERGE
+;;(setq smerge-command-prefix "\C-cv")
+
 ;; Rename file and buffer
 (defun rename-this-buffer-and-file ()
   "Renames current buffer and file it is visiting."
@@ -241,6 +244,9 @@
  '(auto-show-mode t t)
  '(delete-auto-save-files nil)
  '(delete-old-versions (quote other))
+ '(grep-find-ignored-directories
+   (quote
+    ("SCCS" "RCS" "CVS" "MCVS" ".src" ".svn" ".git" ".hg" ".bzr" "_MTN" "_darcs" "{arch}" "node_modules" "coverage")))
  '(imenu-auto-rescan t)
  '(imenu-auto-rescan-maxout 500000)
  '(kept-new-versions 5)
@@ -249,7 +255,11 @@
  '(make-backup-files nil)
  '(mouse-wheel-follow-mouse nil)
  '(mouse-wheel-progressive-speed nil)
- '(mouse-wheel-scroll-amount (quote (15)))
+ '(mouse-wheel-scroll-amount (quote (5)))
+ '(package-selected-packages
+   (quote
+    (markdown-mode prettier-js restclient tide yaml-mode web-mode use-package typescript-mode try s rjsx-mode rainbow-mode php-mode night-owl-theme magit flycheck find-file-in-project fill-column-indicator company-quickhelp)))
+ '(require-final-newline (quote visit))
  '(version-control nil))
 
 
@@ -259,4 +269,19 @@
 (setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
 (setq scroll-step 25) ;; keyboard scroll one line at a time
 
+(global-set-key [(control meta n)] 'smerge-next)
+(global-set-key [(control meta p)] 'smerge-prev)
+(global-set-key [(control meta u)] 'smerge-keep-upper)
+(global-set-key [(control meta o)] 'smerge-keep-lower)
+
 (load "tsx-setup")
+(put 'downcase-region 'disabled nil)
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(smerge-markers ((t (:background "grey30" :foreground "gray0"))))
+ '(smerge-refined-added ((t (:inherit smerge-refined-change :background "chartreuse3"))))
+ '(smerge-refined-removed ((t (:inherit smerge-refined-change :background "red4")))))
+(put 'dired-find-alternate-file 'disabled nil)

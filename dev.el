@@ -73,3 +73,5 @@
 (add-to-list 'auto-mode-alist '(".env$" . shell-script-mode))
 (add-to-list 'auto-mode-alist '("\\.js.erb$" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.css.scss$" . sass-mode))
+(add-to-list 'auto-mode-alist '("\\.php$" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.org$" . org-mode))

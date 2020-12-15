@@ -33,3 +33,7 @@
     (setq web-mode-indent-style 2)
 )
 (add-hook 'web-mode-hook  'my-web-mode-hook)
+
+;; (setq js-switch-indent-offset 2)
+;; (setq js2-indent-switch-body t)
+;; (symbol-value 'js-switch-indent-offset)

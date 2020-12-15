@@ -73,3 +73,8 @@
 (use-package css-mode
   :config
 (setq css-indent-offset 2))
+
+(use-package prettier-js
+  :ensure t
+  :after (rjsx-mode)
+  :hook (rjsx-mode . prettier-js-mode))
