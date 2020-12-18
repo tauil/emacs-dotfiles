@@ -1,5 +1,0 @@
-# contributor: Rafael B. Tauil <rafael@tauil.com.br>
-# name: plataforma r3 resizable_image_tag
-# key: rit
-# --
-<%= resizable_image_tag theme_image_path("high/$1") %>

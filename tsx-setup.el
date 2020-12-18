@@ -76,5 +76,11 @@
 
 (use-package prettier-js
   :ensure t
+  :init (progn
+          ;; Update path to make sure prettier works
+          (setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
+          (setq exec-path (append exec-path '("/usr/local/bin"))))
   :after (rjsx-mode)
   :hook (rjsx-mode . prettier-js-mode))
+
+(add-hook 'js2-jsx-mode-hook 'prettier-js-mode)

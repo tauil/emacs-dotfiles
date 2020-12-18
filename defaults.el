@@ -37,3 +37,14 @@
 ;; (setq js-switch-indent-offset 2)
 ;; (setq js2-indent-switch-body t)
 ;; (symbol-value 'js-switch-indent-offset)
+
+;; Change meta to apple command key
+(setq mac-command-modifier 'meta)
+(setq mac-option-modifier 'none)
+
+(setq ido-enable-flex-matching t)
+(setq ido-everywhere t)
+(ido-mode t)
+
+(put 'downcase-region 'disabled nil)
+(put 'dired-find-alternate-file 'disabled nil)

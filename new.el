@@ -12,10 +12,6 @@
 (load "defaults")
 (load "eshell-setup")
 
-;; Change meta to apple command key
-(setq mac-command-modifier 'meta)
-(setq mac-option-modifier 'none)
-
 ;; Visuals
 (setq inhibit-splash-screen t) ;; Do not show splash screen
 (tool-bar-mode -1) ;; Disable toolbar
@@ -25,7 +21,8 @@
 (set-fringe-style -1)
 (scroll-bar-mode -1)
 (menu-bar-mode -1)
-;;(setq scroll-step 1)
+(setq scroll-step 10)
+;;(setq scroll-preserve-screen-position 1)
 (set-face-attribute 'default nil :height 150)
 
 (when window-system
