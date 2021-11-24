@@ -7,17 +7,21 @@
 (tool-bar-mode -1) ;; Disable toolbar
 
 ;; Show line numbers
-(setq linum-format "%3d ")
+(setq linum-format "%3d|")
 (global-linum-mode)
 
 (show-paren-mode) ;; Highlight matching parentheses when the point is on them.
+
+(set-frame-position nil 630 0)
+(set-frame-width nil 210)
+(add-to-list 'default-frame-alist '(fullscreen . fullheight))
 
 ;; Clock in the mode line
 (setq display-time-24hr-format t)
 (setq display-time-default-load-average nil)
 (display-time)
 
-(set-fringe-style 5) ;; left and right spaces
+(set-fringe-style 15) ;; left and right spaces
 (scroll-bar-mode -1) ;; hide scrollbar
 (menu-bar-mode -1) ;; hide menubar
 ;; (setq scroll-step 1
@@ -36,6 +40,13 @@
                    empty)))
 (global-whitespace-mode)
 
+(defun my-magit-section-mode-hook ()
+  "Custom behaviours for 'magit-section-mode'."
+  (whitespace-mode)
+  (whitespace-mode))
+
+(add-hook 'magit-section-mode-hook #'my-magit-section-mode-hook)
+
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -44,3 +55,10 @@
  '(smerge-markers ((t (:background "grey30" :foreground "gray0"))))
  '(smerge-refined-added ((t (:inherit smerge-refined-change :background "chartreuse3"))))
  '(smerge-refined-removed ((t (:inherit smerge-refined-change :background "red4")))))
+
+;; WIP
+;; (add-to-list 'initial-frame-alist '(fullscreen . maximized))
+;; (set-frame-size (selected-frame) 200 78)
+;; (set-frame-height (selected-frame) 75)
+;; (set-frame-position (selected-frame) 900 0)
+;; (fullheight)

@@ -18,11 +18,13 @@
 (use-package company
   :ensure t
   :config
-  (setq company-show-numbers t)
-  (setq company-tooltip-align-annotations t)
   ;; invert the navigation direction if the the completion popup-isearch-match
   ;; is displayed on top (happens near the bottom of windows)
-  (setq company-tooltip-flip-when-above t)
+  (setq company-tooltip-flip-when-above t
+        ;;company-show-numbers t
+        company-tooltip-align-annotations t
+        company-minimun-prefix-lengh 1
+        company-idel-delay 0.0)
   (global-company-mode))
 
 (use-package company-quickhelp
@@ -78,9 +80,17 @@
   :ensure t
   :init (progn
           ;; Update path to make sure prettier works
-          (setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
-          (setq exec-path (append exec-path '("/usr/local/bin"))))
+          (setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin:/Users/tauil/.nvm/versions/node/v16.8.0/bin/"))
+          (setq exec-path (append exec-path '("/Users/tauil/.nvm/versions/node/v16.8.0/bin/"))))
   :after (rjsx-mode)
   :hook (rjsx-mode . prettier-js-mode))
 
 (add-hook 'js2-jsx-mode-hook 'prettier-js-mode)
+
+(use-package lsp-mode
+  :ensure t
+  :commands (lsp lsp-deferred)
+  :init
+  (setq lsp-keymap-prefix "C-c l")
+  :config
+  (lsp-enable-which-key-integration t))

@@ -1,7 +1,7 @@
 (require 'package)
 (setq package-enable-at-startup nil)
-(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
-                         ("marmalade" . "http://marmalade-repo.org/packages/")
+(setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
+                         ("org" . "https://orgmode.org/elpa/")
                          ("melpa" . "https://melpa.org/packages/")))
 (package-initialize)
 
@@ -22,6 +22,7 @@
           (setq ffip-prune-patterns `("*/coverage" ,@ffip-prune-patterns))
           (setq ffip-prune-patterns `("*/android" ,@ffip-prune-patterns))
           (setq ffip-prune-patterns `("*/ios" ,@ffip-prune-patterns))
+          (setq ffip-prefer-ido-mode t)
           (global-set-key (kbd "M-t") 'find-file-in-project)))
 
 (use-package magit

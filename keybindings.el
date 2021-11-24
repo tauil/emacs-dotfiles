@@ -33,6 +33,7 @@
                           (next-line 4)
                           (scroll-up 4)) )
 
+(global-set-key [(control meta a)] 'smerge-keep-all)
 (global-set-key [(control meta n)] 'smerge-next)
 (global-set-key [(control meta p)] 'smerge-prev)
 (global-set-key [(control meta u)] 'smerge-keep-upper)

@@ -2,6 +2,9 @@
 (setq auto-save-default nil) ;; Disable auto save
 (setq visible-bell 1) ;; Visual bell instead of annoying bell
 (setq create-lockfiles nil) ;; Prevent from creating temporary files while file is not saved which conflict with Ember live reload
+(setq custom--inhibit-theme-enable nil)
+;;(setq default-directory "~/")
+;;(setq command-line-default-directory "~/")
 
 (setq-default indent-tabs-mode nil)
 (setq c-indent-level 2)
