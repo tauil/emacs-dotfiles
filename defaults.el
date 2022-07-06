@@ -3,6 +3,7 @@
 (setq visible-bell 1) ;; Visual bell instead of annoying bell
 (setq create-lockfiles nil) ;; Prevent from creating temporary files while file is not saved which conflict with Ember live reload
 (setq custom--inhibit-theme-enable nil)
+(setq confirm-kill-emacs 'y-or-n-p)
 ;;(setq default-directory "~/")
 ;;(setq command-line-default-directory "~/")
 
