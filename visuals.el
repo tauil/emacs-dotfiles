@@ -7,13 +7,14 @@
 (tool-bar-mode -1) ;; Disable toolbar
 
 ;; Show line numbers
-(setq linum-format "%3d|")
+(setq linum-format "%3d \u2502")
 (global-linum-mode)
 
 (show-paren-mode) ;; Highlight matching parentheses when the point is on them.
 
-(set-frame-position nil 630 0)
-(set-frame-width nil 210)
+(set-frame-position nil 772 0)
+(set-frame-width nil 248)
+
 (add-to-list 'default-frame-alist '(fullscreen . fullheight))
 
 ;; Clock in the mode line
@@ -21,7 +22,7 @@
 (setq display-time-default-load-average nil)
 (display-time)
 
-(set-fringe-style 15) ;; left and right spaces
+(set-fringe-style 0) ;; left and right spaces
 (scroll-bar-mode -1) ;; hide scrollbar
 (menu-bar-mode -1) ;; hide menubar
 ;; (setq scroll-step 1
