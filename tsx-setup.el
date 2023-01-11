@@ -75,9 +75,6 @@
 
 ;; Fixes tide-server start
 (setq tide-node-executable "/Users/tauil/.nvm/versions/node/v16.19.0/bin/node")
-(setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin:/Users/tauil/.nvm/versions/node/v16.19.0/bin/"))
-(setq exec-path (append exec-path '("/Users/tauil/.nvm/versions/node/v16.19.0/bin/")))
-(setenv "NODE_PATH" "/usr/local/lib/node_modules")
 
 (use-package prettier
   :ensure t
