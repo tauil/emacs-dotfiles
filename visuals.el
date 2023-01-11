@@ -13,7 +13,11 @@
 (show-paren-mode) ;; Highlight matching parentheses when the point is on them.
 
 (set-frame-position nil 772 0)
-(set-frame-width nil 248)
+(set-frame-width nil 248) ;; work monitor
+
+;; home monitor
+(if (eq (display-pixel-width) 4352)
+    (set-frame-width nil 198))
 
 (add-to-list 'default-frame-alist '(fullscreen . fullheight))
 
