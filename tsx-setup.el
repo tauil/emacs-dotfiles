@@ -10,9 +10,6 @@
   (setq flycheck-check-syntax-automatically '(save mode-enabled))
   (eldoc-mode +1)
   (tide-hl-identifier-mode +1)
-  ;; company is an optional dependency. You have to
-  ;; install it separately via package-install
-  ;; `M-x package-install [ret] company`
   (company-mode +1))
 
 (use-package company
@@ -76,21 +73,20 @@
   :config
 (setq css-indent-offset 2))
 
-(use-package prettier-js
-  :ensure t
-  :init (progn
-          ;; Update path to make sure prettier works
-          (setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin:/Users/tauil/.nvm/versions/node/v16.8.0/bin/"))
-          (setq exec-path (append exec-path '("/Users/tauil/.nvm/versions/node/v16.8.0/bin/"))))
-  :after (rjsx-mode)
-  :hook (rjsx-mode . prettier-js-mode))
+;; Fixes tide-server start
+(setq tide-node-executable "/Users/tauil/.nvm/versions/node/v16.19.0/bin/node")
+(setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin:/Users/tauil/.nvm/versions/node/v16.19.0/bin/"))
+(setq exec-path (append exec-path '("/Users/tauil/.nvm/versions/node/v16.19.0/bin/")))
+(setenv "NODE_PATH" "/usr/local/lib/node_modules")
 
-(add-hook 'js2-jsx-mode-hook 'prettier-js-mode)
+(use-package prettier
+  :ensure t
+  :hook ((rjsx-mode . prettier-mode)
+         (typescript-mode . prettier-mode)
+         (web-mode . prettier-mode)))
 
 (use-package lsp-mode
   :ensure t
   :commands (lsp lsp-deferred)
-  :init
-  (setq lsp-keymap-prefix "C-c l")
-  :config
-  (lsp-enable-which-key-integration t))
+  :init (setq lsp-keymap-prefix "C-c l")
+  :config (lsp-enable-which-key-integration t))
