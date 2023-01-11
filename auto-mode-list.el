@@ -23,3 +23,4 @@
 (add-to-list 'auto-mode-alist '("\\.js.erb$" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.css.scss$" . sass-mode))
 (add-to-list 'auto-mode-alist '("\\.rest$" . restclient-mode))
+(add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
