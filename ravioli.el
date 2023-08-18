@@ -14,7 +14,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(prettier dap-mode terraform-mode magit-circleci hideshow-org rust-mode toml-mode go-mode lsp-mode yaml-mode web-mode use-package try tide rjsx-mode restclient rainbow-mode prettier-js php-mode night-owl-theme markdown-mode magit find-file-in-project fill-column-indicator company-quickhelp)))
+   '(graphql-mode prettier dap-mode terraform-mode magit-circleci hideshow-org rust-mode toml-mode go-mode lsp-mode yaml-mode web-mode use-package try tide rjsx-mode restclient rainbow-mode prettier-js php-mode night-owl-theme markdown-mode magit find-file-in-project fill-column-indicator company-quickhelp)))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

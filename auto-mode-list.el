@@ -11,6 +11,8 @@
 (add-to-list 'auto-mode-alist '("\\.xml$" . nxml-mode))
 (add-to-list 'auto-mode-alist '("\\.html$" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.html.erb$" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.astro$" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.mjs$" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.hbs$" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.haml$" . haml-mode))
 (add-to-list 'auto-mode-alist '("\\.scss$" . scss-mode))

@@ -52,3 +52,4 @@
 
 (put 'downcase-region 'disabled nil)
 (put 'dired-find-alternate-file 'disabled nil)
+;; (setq magit-circleci-token "ca3891145c5738e89c9bf98b035ae180ed5b8721")

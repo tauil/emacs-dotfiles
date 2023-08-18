@@ -74,11 +74,11 @@
 (setq css-indent-offset 2))
 
 ;; Fixes tide-server start
-(setq tide-node-executable "/Users/tauil/.nvm/versions/node/v16.19.0/bin/node")
-(setq exec-path (append exec-path '("/Users/tauil/.nvm/versions/node/v16.19.0/bin")))
+(setq tide-node-executable "/Users/tauil/.nvm/versions/node/v19.4.0/bin/node")
+(setq exec-path (append exec-path '("/Users/tauil/.nvm/versions/node/v19.4.0/bin")))
 
 ;; Adds to path so all binaries works within magit
-(setenv "PATH" (concat (getenv "PATH") ":/Users/tauil/.nvm/versions/node/v16.19.0/bin"))
+(setenv "PATH" (concat (getenv "PATH") ":/Users/tauil/.nvm/versions/node/v19.4.0/bin"))
 
 (use-package prettier
   :ensure t

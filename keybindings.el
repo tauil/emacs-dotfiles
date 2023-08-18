@@ -14,6 +14,13 @@
 ;; Grep dired
 (global-set-key [(meta shift f)] 'rgrep)
 
+(eval-after-load 'rgrep
+  '(progn
+     (add-to-list 'grep-find-ignored-directories "dist")
+     (add-to-list 'grep-find-ignored-directories "node_modules")
+     (add-to-list 'grep-find-ignored-directories ".serverless")
+     ))
+
 ;; Window
 (global-set-key [(shift up)] 'windmove-up)
 (global-set-key [(shift left)] 'windmove-left)
