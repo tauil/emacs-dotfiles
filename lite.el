@@ -1,4 +1,5 @@
-(load "/Users/tauil/Projects/emacs-dotfiles/defaults")
+(add-to-list 'load-path "~/Projects/personal/emacs-dotfiles/")
+(load "defaults")
 
 ;; Visuals
 (setq inhibit-splash-screen t) ;; Do not show splash screen
