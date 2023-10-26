@@ -8,11 +8,12 @@
 
 ;; Show line numbers
 (setq linum-format "%3d \u2502")
-(global-linum-mode)
+(global-display-line-numbers-mode)
 
 (show-paren-mode) ;; Highlight matching parentheses when the point is on them.
 
-(set-frame-position nil 772 0)
+;; (set-frame-position nil 0 0) ;; only notebook
+(set-frame-position nil 772 0) ;; work monitor
 (set-frame-width nil 248) ;; work monitor
 
 ;; home monitor
