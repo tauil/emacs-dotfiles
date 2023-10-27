@@ -78,7 +78,7 @@
 (setq exec-path (append exec-path '("/Users/rafaeltauil/.nvm/versions/node/v18.17.1/bin/node")))
 
 ;; Adds to path so all binaries works within magit
-(setenv "PATH" (concat (getenv "PATH") ":/Users/rafaeltauil/.nvm/versions/node/v18.17.1/bin/node"))
+(setenv "PATH" (concat (getenv "PATH") ":/Users/rafaeltauil/.nvm/versions/node/v18.17.1/bin"))
 
 (use-package prettier
   :ensure t
