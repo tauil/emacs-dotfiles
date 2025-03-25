@@ -4,7 +4,8 @@
 ;; Visuals
 (setq inhibit-splash-screen t) ;; Do not show splash screen
 (tool-bar-mode -1) ;; Disable toolbar
-(global-linum-mode) ;; Show line numbers
+(setq linum-format "%3d \u2502")
+(global-display-line-numbers-mode)
 (show-paren-mode) ;; Highlight matching parentheses when the point is on them.
 (display-time)
 (set-fringe-style -1)

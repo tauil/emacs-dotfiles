@@ -33,3 +33,7 @@
         (message "File '%s' successfully removed" filename)))))
 
 (global-set-key (kbd "C-c k") 'delete-this-buffer-and-file)
+
+(defun open-commit (commit)
+  (interactive "sCommit:")
+  (org-link-open-from-string (concat "https://github.com/unfoldrtech/portal-web/commit/" commit)))

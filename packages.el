@@ -9,16 +9,23 @@
   (package-refresh-contents)
   (package-install 'use-package))
 
-(use-package night-owl-theme
+;; (use-package night-owl-theme
+;;   :ensure t
+;;   :init (progn
+;;           (load "night-owl-theme")))
+
+(use-package catppuccin-theme
   :ensure t
   :init (progn
-          (load "night-owl-theme")))
+          (load "catppuccin-theme")))
 
 (use-package find-file-in-project
   :ensure t
   :init (progn
           (require 'find-file-in-project)
           (setq ffip-prune-patterns `("*/cypress" ,@ffip-prune-patterns))
+          (setq ffip-prune-patterns `("*/coverage-*" ,@ffip-prune-patterns))
+          (setq ffip-prune-patterns `("*/dist" ,@ffip-prune-patterns))
           (setq ffip-prune-patterns `("*/coverage" ,@ffip-prune-patterns))
           (setq ffip-prune-patterns `("*/android" ,@ffip-prune-patterns))
           (setq ffip-prune-patterns `("*/ios" ,@ffip-prune-patterns))

@@ -45,3 +45,5 @@
 (global-set-key [(control meta p)] 'smerge-prev)
 (global-set-key [(control meta u)] 'smerge-keep-upper)
 (global-set-key [(control meta o)] 'smerge-keep-lower)
+(global-set-key [(control meta return)] 'copilot-accept-completion)
+(global-set-key (kbd "<backtab>") 'hs-toggle-hiding)

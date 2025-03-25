@@ -52,15 +52,20 @@
   (add-hook 'web-mode-hook
             (lambda ()
               (when (string-equal "tsx" (file-name-extension buffer-file-name))
+                (hs-minor-mode 1)
                 (setup-tide-mode))))
+  )
   ;; enable typescript-tslint checker
-  (flycheck-add-mode 'typescript-tslint 'web-mode))
+  ;; Testing out to check the speed:
+  ;; (flycheck-add-mode 'typescript-tslint 'web-mode))
 
 (use-package typescript-mode
   :ensure t
   :config
   (setq typescript-indent-level 2)
-  (add-hook 'typescript-mode #'subword-mode))
+  (add-hook 'typescript-mode (lambda ()
+                               (hs-minor-mode 1)
+                               (subword-mode 1))))
 
 (use-package tide
   :init
@@ -74,11 +79,12 @@
 (setq css-indent-offset 2))
 
 ;; Fixes tide-server start
-(setq tide-node-executable "/Users/rafaeltauil/.nvm/versions/node/v18.17.1/bin/node")
-(setq exec-path (append exec-path '("/Users/rafaeltauil/.nvm/versions/node/v18.17.1/bin/node")))
+(setq tide-node-executable "/Users/rafaeltauil/.nvm/versions/node/v18.19.0/bin/node")
+(setq exec-path (append exec-path '("/Users/rafaeltauil/.nvm/versions/node/v18.19.0/bin/node")))
+(setq exec-path (append exec-path '("/Users/rafaeltauil/.nvm/versions/node/v18.19.0/bin/npm")))
 
 ;; Adds to path so all binaries works within magit
-(setenv "PATH" (concat (getenv "PATH") ":/Users/rafaeltauil/.nvm/versions/node/v18.17.1/bin"))
+(setenv "PATH" (concat (getenv "PATH") ":/Users/rafaeltauil/.nvm/versions/node/v18.19.0/bin"))
 
 (use-package prettier
   :ensure t
@@ -91,3 +97,7 @@
   :commands (lsp lsp-deferred)
   :init (setq lsp-keymap-prefix "C-c l")
   :config (lsp-enable-which-key-integration t))
+
+;; Loads copilot
+(setq copilot-node-executable "/Users/rafaeltauil/.nvm/versions/node/v18.19.0/bin/node")
+(load "copilot")
