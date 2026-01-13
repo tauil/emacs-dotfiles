@@ -21,6 +21,8 @@
      (add-to-list 'grep-find-ignored-directories ".serverless")
      ))
 
+(global-set-key [(meta shift d)] #'deadgrep)
+
 ;; Window
 (global-set-key [(shift up)] 'windmove-up)
 (global-set-key [(shift left)] 'windmove-left)

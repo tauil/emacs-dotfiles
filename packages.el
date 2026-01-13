@@ -51,3 +51,50 @@
 
 (use-package rainbow-mode
   :ensure t)
+
+(use-package expand-region
+  :bind ("C-=" . er/expand-region))
+
+(use-package sql-indent
+  :ensure t)
+
+(use-package yaml-mode
+  :mode "\\.ya?ml\\'"
+  :hook (yaml-mode . highlight-indent-guides-mode))
+
+(use-package highlight-indent-guides
+  :hook (yaml-mode . highlight-indent-guides-mode)
+  :config
+  (setq highlight-indent-guides-method 'character))
+
+(custom-set-faces
+ '(highlight-indent-guides-character-face ((t (:foreground "#5e4f70" :slant normal)))))
+
+;; #B899DE
+;; #5e4f70
+
+(use-package ob-mermaid
+  :ensure t
+  :config
+  (setq ob-mermaid-cli-path "~/.nvm/versions/node/v20.18.0/bin/mmdc"))  ;; Adjust path as needed
+
+(use-package ob-mermaid
+  :ensure t
+  :config
+  (setq ob-mermaid-cli-path "~/.nvm/versions/node/v20.18.0/bin/mmdc")
+  (setq org-babel-default-header-args:mermaid
+        '((:results . "file")
+          (:exports . "results")
+          (:file-ext . "png")
+          (:cmdline . "--backgroundColor transparent -t dark"))))
+
+(setq org-confirm-babel-evaluate
+      (lambda (lang body)
+        (not (member lang '("mermaid" "plantuml" "dot")))))
+
+(add-hook 'org-babel-after-execute-hook #'org-redisplay-inline-images)
+
+
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((mermaid . t)))

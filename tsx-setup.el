@@ -3,6 +3,19 @@
   :config
   (add-hook 'typescript-mode-hook 'flycheck-mode))
 
+;; ;; Point to the eslint in node_modules
+;; (defun my/use-eslint-from-node-modules ()
+;;   (let* ((root (locate-dominating-file
+;;                 (or (buffer-file-name) default-directory)
+;;                 "node_modules"))
+;;          (eslint (and root
+;;                       (expand-file-name "node_modules/.bin/eslint"
+;;                                         root))))
+;;     (when (and eslint (file-executable-p eslint))
+;;       (setq-local flycheck-javascript-eslint-executable eslint))))
+
+;; (add-hook 'flycheck-mode-hook #'my/use-eslint-from-node-modules)
+
 (defun setup-tide-mode ()
   (interactive)
   (tide-setup)
@@ -79,12 +92,22 @@
 (setq css-indent-offset 2))
 
 ;; Fixes tide-server start
-(setq tide-node-executable "/Users/rafaeltauil/.nvm/versions/node/v18.19.0/bin/node")
-(setq exec-path (append exec-path '("/Users/rafaeltauil/.nvm/versions/node/v18.19.0/bin/node")))
-(setq exec-path (append exec-path '("/Users/rafaeltauil/.nvm/versions/node/v18.19.0/bin/npm")))
+(defun get-current-nvm-node-path ()
+  "Get the current nvm node executable path."
+  (let ((nvm-current (string-trim (shell-command-to-string "bash -c 'source ~/.nvm/nvm.sh && nvm current'"))))
+    (format "/Users/rafaeltauil/.nvm/versions/node/%s/bin/node" nvm-current)))
 
-;; Adds to path so all binaries works within magit
-(setenv "PATH" (concat (getenv "PATH") ":/Users/rafaeltauil/.nvm/versions/node/v18.19.0/bin"))
+(defun get-current-nvm-bin-path ()
+  "Get the current nvm bin directory path."
+  (let ((nvm-current (string-trim (shell-command-to-string "bash -c 'source ~/.nvm/nvm.sh && nvm current'"))))
+    (format "/Users/rafaeltauil/.nvm/versions/node/%s/bin" nvm-current)))
+
+(setq tide-node-executable (get-current-nvm-node-path))
+(setq exec-path (append exec-path (list (get-current-nvm-node-path))))
+(setq exec-path (append exec-path (list (format "%s/npm" (get-current-nvm-bin-path)))))
+
+;; Adds to path so all binaries works within magit (prepend so NVM takes priority)
+(setenv "PATH" (concat (get-current-nvm-bin-path) ":" (getenv "PATH")))
 
 (use-package prettier
   :ensure t
@@ -99,5 +122,5 @@
   :config (lsp-enable-which-key-integration t))
 
 ;; Loads copilot
-(setq copilot-node-executable "/Users/rafaeltauil/.nvm/versions/node/v18.19.0/bin/node")
+(setq copilot-node-executable (get-current-nvm-node-path))
 (load "copilot")

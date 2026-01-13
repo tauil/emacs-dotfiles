@@ -83,8 +83,10 @@
 
 (defun my-magit-section-mode-hook ()
   "Custom behaviours for 'magit-section-mode'."
-  (message "MY GLORIOUS AND FANTASTIC CUSTOMIZATIONS FOR MAGIT")
   (whitespace-mode)
   (whitespace-mode))
 
 (add-hook 'magit-section-mode-hook #'my-magit-section-mode-hook)
+
+(setq ediff-split-window-function 'split-window-horizontally)
+(setq ediff-window-setup-function 'ediff-setup-windows-plain)
